@@ -1,0 +1,42 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 150px;
+  background-color: #f0f0f0;
+  flex-wrap: wrap; /* Permite que los elementos se muevan a una nueva línea si es necesario */
+}
+
+.logo {
+  margin-right: 10px; /* Alinea el logo más cerca de la barra de búsqueda */
+}
+
+.search-bar {
+  padding: 5px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  width: 300px; /* Tamaño máximo de la barra de búsqueda */
+  margin-left: 10px; /* Ajuste para la separación entre el logo y la barra */
+  margin-right: 10px;
+}
+
+.nav {
+  flex-grow: 1; /* Deja que el menú navegable ocupe el espacio restante */
+}
+
+.nav a {
+  margin-right: 20px;
+  text-decoration: none;
+  color: black;
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  gap: 10px; /* Espaciado entre los botones */
+}
+
+.actions button {
+  padding: 5px 10px;
+  border-radius: 5px;
+}

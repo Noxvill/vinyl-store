@@ -1,0 +1,14 @@
+.registration-page {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+  }
+  
+  .registration-content {
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #522f2b; /* Color de fondo igual que en el formulario */
+  }
+  

@@ -1,0 +1,22 @@
+.product-card {
+    border: 1px solid #ddd;
+    padding: 20px;
+    border-radius: 8px;
+    text-align: center;
+  }
+  
+  .image-placeholder {
+    width: 100px;
+    height: 100px;
+    background-color: #eee;
+    margin: 0 auto 10px;
+  }
+  
+  .buy-btn {
+    background-color: #333;
+    color: white;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 4px;
+  }
+  
