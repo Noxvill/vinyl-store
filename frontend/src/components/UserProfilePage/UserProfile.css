@@ -1,0 +1,42 @@
+.profile-container {
+    background-color: #f5f5f5;
+    padding: 20px;
+    min-height: calc(100vh - 150px); /* Ajuste para que la página sea responsiva, excluyendo el header y footer */
+  }
+  
+  .profile-header {
+    background-color: #3a3737;
+    text-align: center;
+    padding: 50px 0;
+    color: #d4a017;
+  }
+  
+  .profile-picture-section {
+    background-color: black;
+    display: flex;
+    justify-content: center;
+    padding: 20px 0;
+  }
+  
+  .profile-picture {
+    text-align: center;
+    color: white;
+  }
+  
+  .profile-picture img {
+    border-radius: 50%;
+    width: 150px;
+    height: 150px;
+  }
+  
+  .profile-details {
+    padding: 30px;
+    background-color: #f9f9f9;
+    margin-top: 20px;
+    font-size: 18px;
+  }
+  
+  .profile-details p {
+    margin: 10px 0;
+  }
+  

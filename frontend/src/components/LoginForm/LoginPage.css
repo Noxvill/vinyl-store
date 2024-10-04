@@ -1,0 +1,14 @@
+.login-page {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+  }
+  
+  .login-content {
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #2e5229; /* Color de fondo verde */
+  }
+  
