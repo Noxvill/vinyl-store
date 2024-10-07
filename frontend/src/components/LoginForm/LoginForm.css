@@ -1,63 +1,21 @@
+.login-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh; /* Mantiene el contenedor dentro del 100% del viewport */
+  width: 100%; /* Asegura que ocupe todo el ancho */
+  padding: 20px;
+  box-sizing: border-box;
+}
+
 .form-container {
-    background-color: #2e5229; /* Color de fondo verde */
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 100px 0;
-    height: calc(100vh - 150px); /* Ajuste de altura excluyendo header y footer */
-  }
-  
-  .login-form {
-    background-color: white;
-    padding: 20px 40px;
-    border-radius: 8px;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-    width: 300px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-  
-  .form-group {
-    margin-bottom: 15px;
-    width: 100%;
-  }
-  
-  .form-group label {
-    display: block;
-    margin-bottom: 5px;
-  }
-  
-  .form-group input {
-    width: 100%;
-    padding: 8px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-  }
-  
-  .login-btn {
-    background-color: #333;
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    width: 100%;
-    margin-bottom: 15px;
-  }
-  
-  .login-btn:hover {
-    background-color: #555;
-  }
-  
-  .forgot-password {
-    color: #555;
-    text-decoration: none;
-    font-size: 14px;
-  }
-  
-  .forgot-password:hover {
-    text-decoration: underline;
-  }
-  
+  background-color: #2e5229; /* Color de fondo verde */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 50px 20px;
+  max-width: 400px;
+  width: 100%;
+  box-sizing: border-box;
+}
