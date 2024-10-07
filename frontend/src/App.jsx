@@ -10,6 +10,7 @@ import ItemsForSale from './components/Marketplace/ItemsForSale'
 import ProductDetail from './components/Marketplace/ProductDetail'
 import NewPublication from './components/NewPostForm/NewPublication';
 import Footer from './components/home/Footer';
+import UserProfilePage from './components/UserProfilePage/UserProfilePage'
 import { GlobalProvider } from './components/Context/GlobalContext';
 import './App.css';
 
@@ -36,6 +37,8 @@ function App() {
           <Route path="/*" element={<NotFound />} />
           <Route path="/Publicaciones" element={<ItemsForSale />} />
           <Route path="/Publicar" element={<NewPublication />} />
+          <Route path="/DetalleProducto" element={<ProductDetail />} />
+          <Route path="/profile" element={<UserProfilePage />} />
         </Routes>
         <Footer />
       </BrowserRouter>

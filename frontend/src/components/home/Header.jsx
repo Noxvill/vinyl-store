@@ -33,6 +33,9 @@ const Header = () => {
         <Link to="/registro" className="register-btn">
           Registro
         </Link>
+        <Link to="/profile" className="register-btn">
+          Mi Perfil
+        </Link>
         <button className="cart-btn">🛒</button>
       </div>
     </header>

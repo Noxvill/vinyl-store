@@ -4,7 +4,7 @@ import './HeroSection.css'; // Estilo fspara la sección Hero
 const HeroSection = () => {
   return (
     <section className="hero">
-      <h1>HERO SECTION</h1>
+      <h1>Bienvenido a Vinyl Store</h1>
     </section>
   );
 };
