@@ -1,10 +1,11 @@
 import React from 'react';
+import signuplogo from '../../assets/signup.png'
 import './RegistrationForm.css'; 
 
 const RegistrationForm = () => {
   return (
     <div className="form-container">
-      <img src="path/to/logo.png" alt="Logo" className="logo" />
+      <img src={signuplogo} alt="Logo" className="logo" />
       <h2>Bienvenido</h2>
       <p>Registrarse</p>
       <form className="registration-form">

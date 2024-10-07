@@ -22,7 +22,7 @@ const ItemsForSale = () => {
         <div className="search-and-sort">
           <input
             type="text"
-            placeholder="Search"
+            placeholder="Buscar"
             value={searchTerm}
             onChange={handleSearchChange}
             className="search-bar"
@@ -32,26 +32,26 @@ const ItemsForSale = () => {
               className={sortOption === 'new' ? 'active' : ''}
               onClick={() => handleSortChange('new')}
             >
-              New
+              Nuevos
             </button>
             <button
               className={sortOption === 'price-asc' ? 'active' : ''}
               onClick={() => handleSortChange('price-asc')}
             >
-              Price ascending
+              Precio ascendente
             </button>
             <button
               className={sortOption === 'price-desc' ? 'active' : ''}
               onClick={() => handleSortChange('price-desc')}
             >
-              Price descending
+              Precio descendente
             </button>
-            <button
+            {/* <button
               className={sortOption === 'rating' ? 'active' : ''}
               onClick={() => handleSortChange('rating')}
             >
-              Rating
-            </button>
+              Valorados
+            </button> */}
           </div>
         </div>
 

@@ -1,17 +1,20 @@
 import React from 'react';
-import Header from '../home/Header'; 
-import Footer from '../home/Footer'; 
+// import Header from '../home/Header'; 
+// import Footer from '../home/Footer'; 
 import RegistrationForm from './RegistrationForm'; 
-import './RegistrationPage.css'; 
+import './RegistrationPage.css';
+// import { GlobalContext } from '../Context/GlobalContext';
 
 const RegistrationPage = () => {
+  // const { user, setUser } = useContext(GlobalContext);
+
   return (
     <div className="registration-page">
-      <Header />
+      {/* <Header /> */}
       <div className="registration-content">
         <RegistrationForm />
       </div>
-      <Footer />
+      {/* <Footer /> */}
     </div>
   );
 };

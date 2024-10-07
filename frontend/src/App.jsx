@@ -1,38 +1,45 @@
 import React from 'react';
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Header from './components/home/Header';
 import HeroSection from './components/home/HeroSection';
 import ProductsSection from './components/home/ProductSection';
 import RegistrationPage from './components/RegistrationForm/RegistrationPage';
 import LoginPage from './components/LoginForm/LoginPage';
-import UserProfilePage from './components/UserProfilePage/UserProfilePage';
+import NotFound from './components/home/NotFound';
+import ItemsForSale from './components/Marketplace/ItemsForSale'
+import ProductDetail from './components/Marketplace/ProductDetail'
 import NewPublication from './components/NewPostForm/NewPublication';
-import ItemsForSale from './components/Marketplace/ItemsForSale';
-import ProductDetail from './components/Marketplace/ProductDetail';
-
-
 import Footer from './components/home/Footer';
-
-
-
+import { GlobalProvider } from './components/Context/GlobalContext';
 import './App.css';
 
 function App() {
   return (
     <div className="App">
-      {/* <Header /> */}
-      {/* <HeroSection />
-      <ProductsSection /> */}
-      {/* <ItemsForSale/> */}
-         {/* <NewPublication /> */}
-         {/* <ProductDetail /> */}
-          {/* <Footer /> */}
-      {/* <RegistrationPage />  */}
-      {/* <UserProfilePage /> */}
-      {/* <LoginPage /> */}
-
-      <Header/>
-      <Footer/>
-   
+      <GlobalProvider> {/* Envuelve toda la aplicación con el proveedor */}
+      <BrowserRouter>
+        <Header />
+        <Routes>
+          {/* Ruta principal incluye tanto HeroSection como ProductsSection */}
+          <Route
+            path="/"
+            element={
+              <>
+                <HeroSection />
+                <ProductsSection />
+              </>
+            }
+          />
+          <Route path="/login" element={<LoginPage />} />
+          <Route path="/registro" element={<RegistrationPage />} />
+          <Route path="/productos" element={<ProductsSection />} />
+          <Route path="/*" element={<NotFound />} />
+          <Route path="/Publicaciones" element={<ItemsForSale />} />
+          <Route path="/Publicar" element={<NewPublication />} />
+        </Routes>
+        <Footer />
+      </BrowserRouter>
+      </GlobalProvider>
     </div>
   );
 }

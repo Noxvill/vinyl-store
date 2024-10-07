@@ -7,7 +7,7 @@ const ProductCard = ({ title, description }) => {
       <div className="image-placeholder">[Imagen]</div>
       <h3>{title}</h3>
       <p>{description}</p>
-      <button className="buy-btn">Comprar</button>
+      <button className="buy-btn">Detalle del Producto</button>
     </div>
   );
 };

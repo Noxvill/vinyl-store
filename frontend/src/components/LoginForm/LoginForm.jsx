@@ -1,11 +1,12 @@
 import React from 'react';
+import loginlogo from '../../assets/login.png'
 import './LoginForm.css'; 
 
 const LoginForm = () => {
   return (
     <div className="login-wrapper">
       <div className="form-container">
-        <img src="path/to/logo.png" alt="Logo" className="logo" />
+        <img src={loginlogo} alt="Logo" className="logo" />
         <h2>Bienvenido!</h2>
         <p>Ingresa tus datos para continuar</p>
         <form className="login-form">
@@ -18,7 +19,7 @@ const LoginForm = () => {
             <input type="password" placeholder="Ingresa tu Contraseña" />
           </div>
           <a href="#" className="forgot-password">Olvidaste tu clave?</a>
-          <button type="submit" className="login-btn">Continue</button>
+          <button type="submit" className="login-btn">Entrar</button>
           <p>No estás registrado? <a href="#">Registrate aquí!</a></p>
         </form>
       </div>
