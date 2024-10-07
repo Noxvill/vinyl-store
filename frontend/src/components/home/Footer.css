@@ -1,6 +1,87 @@
 .footer {
-    background-color: #f0f0f0;
+  background-color: #292727;
+  color: whitesmoke;
+  padding: 40px 0;
+}
+
+.footer-container {
+  display: flex;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: 0 auto;
+  flex-wrap: wrap; /* Para asegurar que las columnas se adapten en pantallas pequeñas */
+}
+
+.footer-column {
+  flex: 1;
+  min-width: 200px; /* Asegura que cada columna tenga un ancho mínimo */
+  margin-bottom: 20px;
+}
+
+.footer-column h3 {
+  font-size: 18px;
+  margin-bottom: 15px;
+  font-weight: bold;
+}
+
+/* Colores diferentes para cada título */
+.footer-column.discos h3 {
+  color: #e67e22; /* Naranja */
+}
+
+.footer-column.ayuda h3 {
+  color: #3498db; /* Azul */
+}
+
+.footer-column.unete h3 {
+  color: #2ecc71; /* Verde */
+}
+
+.footer-column.siguenos h3 {
+  color: #f1c40f; /* Amarillo */
+}
+
+.footer-column.onthego h3 {
+  color: #e74c3c; /* Rojo */
+}
+
+.footer-column ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-column ul li {
+  margin-bottom: 10px;
+}
+
+.footer-column ul li a {
+  color: whitesmoke;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.footer-column ul li a:hover {
+  color: #b4cd7d;
+}
+
+.app-links a {
+  display: inline-block;
+  margin: 10px 0;
+}
+
+.app-links img {
+  width: 150px;
+  height: auto;
+}
+
+/* Responsividad */
+@media (max-width: 768px) {
+  .footer-container {
+    flex-direction: column; /* Hace que las columnas se apilen verticalmente */
     text-align: center;
+  }
+
+  .footer-column {
     padding: 20px 0;
   }
-  
+}

@@ -1,5 +1,5 @@
 import React from 'react';
-import './HeroSection.css'; // Estilos específicos para la sección Hero
+import './HeroSection.css'; // Estilo fspara la sección Hero
 
 const HeroSection = () => {
   return (

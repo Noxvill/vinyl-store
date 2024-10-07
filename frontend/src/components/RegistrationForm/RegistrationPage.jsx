@@ -1,8 +1,8 @@
 import React from 'react';
-import Header from '../home/Header'; // Reutiliza el componente de Header
-import Footer from '../home/Footer'; // Reutiliza el componente de Footer
-import RegistrationForm from './RegistrationForm'; // Importa el nuevo formulario
-import './RegistrationPage.css'; // Estilos específicos para esta página
+import Header from '../home/Header'; 
+import Footer from '../home/Footer'; 
+import RegistrationForm from './RegistrationForm'; 
+import './RegistrationPage.css'; 
 
 const RegistrationPage = () => {
   return (

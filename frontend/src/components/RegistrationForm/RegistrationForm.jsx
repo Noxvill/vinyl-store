@@ -1,27 +1,27 @@
 import React from 'react';
-import './RegistrationForm.css'; // Asegúrate de crear este archivo de estilos
+import './RegistrationForm.css'; 
 
 const RegistrationForm = () => {
   return (
     <div className="form-container">
-      <h2>Formulario de Registro</h2>
+      <img src="path/to/logo.png" alt="Logo" className="logo" />
+      <h2>Bienvenido</h2>
+      <p>Registrarse</p>
       <form className="registration-form">
         <div className="form-group">
-          <label>Email</label>
-          <input type="email" placeholder="Value" />
+          <label>Nombre de usuario</label>
+          <input type="text" placeholder="Ingrese un nombre de usuario" className="valid-input" />
         </div>
         <div className="form-group">
-          <label>Password</label>
-          <input type="password" placeholder="Value" />
+          <label>Email</label>
+          <input type="email" placeholder="Ingrese su Email" className="invalid-input" />
+                  </div>
+        <div className="form-group">
+          <label>Contraseña</label>
+          <input type="password" placeholder="Ingrese su contraseña" />
         </div>
-        <div className="form-group checkbox-group">
-          <input type="checkbox" id="terms" />
-          <label htmlFor="terms">
-            <span>Label</span>
-            <p>Description</p>
-          </label>
-        </div>
-        <button type="submit" className="register-btn">Register</button>
+        <button type="submit" className="register-btn">Guardar</button>
+        <p>Ya tienes una cuenta? <a href="#">Ir a Login</a></p>
       </form>
     </div>
   );

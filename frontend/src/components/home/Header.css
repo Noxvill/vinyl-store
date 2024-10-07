@@ -2,22 +2,24 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 20px 150px;
-  background-color: #f0f0f0;
+  padding: 20px 140px;
+  background-color: #292727;
   flex-wrap: wrap; /* Permite que los elementos se muevan a una nueva línea si es necesario */
 }
 
 .logo {
   margin-right: 10px; /* Alinea el logo más cerca de la barra de búsqueda */
+  
 }
 
 .search-bar {
   padding: 5px;
   border-radius: 4px;
   border: 1px solid #ccc;
-  width: 300px; /* Tamaño máximo de la barra de búsqueda */
-  margin-left: 10px; /* Ajuste para la separación entre el logo y la barra */
-  margin-right: 10px;
+  height: 50px;
+  width: 500px; /* Tamaño máximo de la barra de búsqueda */
+  margin-left: 40px; /* Ajuste para la separación entre el logo y la barra */
+  margin-right: 40px;
 }
 
 .nav {
@@ -27,16 +29,26 @@
 .nav a {
   margin-right: 20px;
   text-decoration: none;
-  color: black;
+  font-size: 25px;
+  color:whitesmoke;
 }
 
 .actions {
   display: flex;
-  align-items: center;
+  /* align-items: center; */
   gap: 10px; /* Espaciado entre los botones */
 }
 
 .actions button {
-  padding: 5px 10px;
+  /* padding: 5px 100px;
+  border-radius: 5px; */
+  padding: 5px 20px; /* Ajusta el padding para que no se vean demasiado grandes */
   border-radius: 5px;
+  min-width: 120px; /* Define un ancho mínimo para ambos botones */
+  height: 40px; /* Define una altura fija para ambos botones */
+}
+
+
+.cart-btn:hover {
+  background-color: #b4cd7d; /* Cambia el color del botón del carrito al pasar el mouse */
 }
