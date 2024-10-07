@@ -27,9 +27,11 @@ const Header = () => {
         </Link>
       </nav>
       <div className="actions">
-        <Link to="/login" className="login-btn">
+       
+        <Link to="/login" className="register-btn">
           Login
         </Link>
+
         <Link to="/registro" className="register-btn">
           Registro
         </Link>
