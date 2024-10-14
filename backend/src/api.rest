@@ -4,10 +4,10 @@ Content-Type: application/json
 
   {
     
-    "nombre": "rondamon",
-    "mail": "tester@gmail.com",
+    "nombre": "Sugar",
+    "mail": "sugar@gmail.com",
     "contraseña":"1234",
-    "rol": "comprador",
+    "rol": "admin",
     "ubicacion": "Chile"
   }
 
@@ -16,11 +16,75 @@ POST http://localhost:3000/api/auth/login
 Content-Type: application/json
 
 {
-  "mail": "tester@gmail.com",
+  "mail": "sugar@gmail.com",
   "contraseña": "1234"
 }
 
 ### Obtener todos los usuarios
 GET http://localhost:3000/api/users/all
 
+### Obtener el perfil de un usuario
 
+GET http://localhost:3000/api/users/profile
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MzMsIm1haWwiOiJzdUBnbWFpbC5jb20iLCJyb2wiOiJhZG1pbiIsImlhdCI6MTcyODg4MTA2MiwiZXhwIjoxNzI4ODg0NjYyfQ.egbLe-2mub1txgqScs7lPmtbs0ww2Rk5b1mBFVmeG0w
+
+
+### Actualizar perfil del usuario
+PUT http://localhost:3000/api/users/profile
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MzMsIm1haWwiOiJzdUBnbWFpbC5jb20iLCJyb2wiOiJhZG1pbiIsImlhdCI6MTcyODg4MTA2MiwiZXhwIjoxNzI4ODg0NjYyfQ.egbLe-2mub1txgqScs7lPmtbs0ww2Rk5b1mBFVmeG0w
+Content-Type: application/json
+
+{
+  "nombre": "Juan Actualizado",
+  "mail":"Updatemail@gmail.com"
+}
+
+### Eliminar usuario
+DELETE http://localhost:3000/api/users/delete
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MzEsIm1haWwiOiJVcGRhdGVtYWlsQGdtYWlsLmNvbSIsInJvbCI6bnVsbCwiaWF0IjoxNzI4ODgwMzAyLCJleHAiOjE3Mjg4ODM5MDJ9.BotXo1K4v4rTh1AdSc0lSRVV6w_yG9jkjUxQ9d22q88
+
+
+### Obtener todos los productos
+GET http://localhost:3000/api/products/all
+Content-Type: application/json
+
+### Crear nuevo producto
+POST http://localhost:3000/api/products/newproduct
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MzMsIm1haWwiOiJzdUBnbWFpbC5jb20iLCJyb2wiOiJhZG1pbiIsImlhdCI6MTcyODg4MTA2MiwiZXhwIjoxNzI4ODg0NjYyfQ.egbLe-2mub1txgqScs7lPmtbs0ww2Rk5b1mBFVmeG0w
+Content-Type: application/json
+
+{
+  "titulo": "Disco pulento",
+  "descripcion": "Descripción del producto",
+  "precio": 25000,
+  "categoria_id": 1,
+  "artista": "Artista Ejemplo",
+  "ano": 2023,
+  "formato": "Vinilo",
+  "condicion": "Nuevo"
+}
+
+### Actualizar producto existente
+PUT http://localhost:3000/api/products/9
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MzEsIm1haWwiOiJVcGRhdGVtYWlsQGdtYWlsLmNvbSIsInJvbCI6bnVsbCwiaWF0IjoxNzI4ODc5NzYyLCJleHAiOjE3Mjg4ODMzNjJ9.ppnsJPxbZTmyenv79wuHNUIADjItR1sULFtiHG9mNrI
+Content-Type: application/json
+
+{
+  "titulo": "Nuevo título actualizado",
+  "descripcion": "Descripción actualizada",
+  "precio": 30000,
+  "categoria_id": 1,
+  "artista": "Nuevo artista",
+  "ano": 2021,
+  "formato": "Vinilo",
+  "condicion": "Nuevo"
+}
+
+### Eliminar producto
+DELETE http://localhost:3000/api/products/8
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MzEsIm1haWwiOiJVcGRhdGVtYWlsQGdtYWlsLmNvbSIsInJvbCI6bnVsbCwiaWF0IjoxNzI4ODc5NzYyLCJleHAiOjE3Mjg4ODMzNjJ9.ppnsJPxbZTmyenv79wuHNUIADjItR1sULFtiHG9mNrI
+
+
+### Eliminar usuario autenticado
+DELETE http://localhost:3000/api/users/delete/1
+Authorization: Bearer: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MzQsIm1haWwiOiJzdWdhckBnbWFpbC5jb20iLCJyb2wiOiJhZG1pbiIsImlhdCI6MTcyODg4MTk2NiwiZXhwIjoxNzI4ODg1NTY2fQ.TvTjOR64mI7HWTUMkORuzNlfLbUXtgHEg7qdhec_wPk

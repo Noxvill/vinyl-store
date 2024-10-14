@@ -22,4 +22,20 @@ const createProduct = async (productoData) => {
     return rows[0];
 };
 
-module.exports = { getAllProducts, createProduct };
+const updateProduct = async (id, productoData) => {
+    const SQLRequest = `
+        UPDATE productos
+        SET titulo = $1, descripcion = $2, precio = $3, categoria_id = $4, artista = $5, ano = $6, formato = $7, condicion = $8
+        WHERE id = $9
+        RETURNING *`;
+    const { rows } = await db.query(SQLRequest, [...Object.values(productoData), id]);
+    return rows[0];
+};
+
+const deleteProduct = async (id, vendedor_id) => {
+    const SQLRequest = 'DELETE FROM productos WHERE id = $1 AND vendedor_id = $2 RETURNING *';
+    const { rows } = await db.query(SQLRequest, [id, vendedor_id]);
+    return rows[0];
+};
+
+module.exports = { getAllProducts, createProduct, updateProduct, deleteProduct };

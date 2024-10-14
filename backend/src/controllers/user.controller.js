@@ -30,4 +30,68 @@ const handleLogin = async (req, res) => {
   res.json({ token });
 };
 
-module.exports = { handleGetAllUsers, handleRegister, handleLogin };
+const getProfile = async (req, res) => {
+  try {
+    const userId = req.user.id; // Extrae el ID del usuario autenticado desde el token
+    const user = await User.findById(userId); // Encuentra el usuario en la base de datos
+
+    if (!user) {
+      return res.status(404).json({ message: 'Usuario no encontrado' });
+    }
+
+    res.status(200).json({
+      id: user.id,
+      nombre: user.nombre,
+      email: user.mail,
+      fecha_registro: user.fecha_registro,
+      rol: user.rol,
+      foto_perfil: user.foto_perfil,
+      ubicacion: user.ubicacion,
+    });
+  } catch (error) {
+    res.status(500).json({ message: 'Error en el servidor' });
+  }
+};
+
+const updateProfile = async (req, res) => {
+  const userId = req.user.id; // ID del usuario autenticado a partir del token
+  const { nombre, mail, rol, ubicacion } = req.body;
+
+  try {
+    // Actualiza el perfil del usuario en la base de datos
+    const updatedUser = await User.updateUserProfile(userId, nombre, mail, rol, ubicacion);
+
+    if (!updatedUser) {
+      return res.status(404).json({ message: 'Usuario no encontrado' });
+    }
+
+    res.status(200).json({ message: 'Perfil actualizado' });
+  } catch (error) {
+    res.status(500).json({ message: 'Error en el servidor' });
+  }
+};
+
+
+const handleDeleteUser = async (req, res) => {
+  try {
+    // Verifica si el usuario logueado tiene rol de 'admin'
+    if (req.user.rol !== 'admin') {
+      return res.status(403).json({ message: 'No autorizado: necesitas ser admin' });
+    }
+
+    const userId = req.params.id;
+    const userToDelete = await User.findById(userId);
+
+    if (!userToDelete) {
+      return res.status(404).json({ message: 'Usuario no encontrado' });
+    }
+
+    await User.deleteUser(userId);
+    res.status(200).json({ message: 'Usuario eliminado correctamente' });
+  } catch (error) {
+    res.status(500).json({ message: 'Error en el servidor' });
+  }
+};
+
+
+module.exports = { handleGetAllUsers, handleRegister, handleLogin, getProfile, updateProfile, handleDeleteUser };
