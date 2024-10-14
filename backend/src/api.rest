@@ -86,5 +86,5 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MzEsIm1haWwiO
 
 
 ### Eliminar usuario autenticado
-DELETE http://localhost:3000/api/users/delete/1
-Authorization: Bearer: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MzQsIm1haWwiOiJzdWdhckBnbWFpbC5jb20iLCJyb2wiOiJhZG1pbiIsImlhdCI6MTcyODg4MTk2NiwiZXhwIjoxNzI4ODg1NTY2fQ.TvTjOR64mI7HWTUMkORuzNlfLbUXtgHEg7qdhec_wPk
+DELETE http://localhost:3000/api/users/delete/34
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MzQsIm1haWwiOiJzdWdhckBnbWFpbC5jb20iLCJyb2wiOiJhZG1pbiIsImlhdCI6MTcyODg4MjA2OCwiZXhwIjoxNzI4ODg1NjY4fQ.6-tW2uUHgFYrPDZ6iI4Bfzc-z0aQM3qLFOD2Qyexe-k
