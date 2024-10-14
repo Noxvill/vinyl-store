@@ -1,28 +1,10 @@
-const UsersRouter = require('express').Router();
-const UserController = require("../controllers/user.controller")
+const router = require('express').Router();
+const UserController = require('../controllers/user.controller');
+const { authenticateToken } = require('../middlewares/auth');
 
+router.post('/register', UserController.handleRegister);
+// router.post('/login', UserController.handleLogin);
+router.get('/profile', authenticateToken, UserController.handleGetAllUsers);
+router.get('/all', UserController.handleGetAllUsers);
 
-// Ruta para crear un usuario
-UsersRouter.post('/create', (req, res) => {
-    res.send('usuario creado');
-});
-
-// Ruta para obtener un usuario por ID
-UsersRouter.get('/get/:id', (req, res) => {
-    res.send('Detalle del user');
-});
-
-// Ruta para obtener todos los usuarios
-UsersRouter.get('/all', UserController.handleGetAllUsers);
-
-// Ruta para eliminar un usuario por ID
-UsersRouter.delete('/delete/:id', (req, res) => {
-    res.send('user deleted');
-});
-
-// Ruta para actualizar un usuario por ID
-UsersRouter.put('/update/:id', (req, res) => {
-    res.send('usuario actualizado');
-});
-
-module.exports = UsersRouter;
+module.exports = router;

@@ -1,0 +1,26 @@
+#### Registrar usuario con pass encriptado.
+POST http://localhost:3000/api/users/register
+Content-Type: application/json
+
+  {
+    
+    "nombre": "rondamon",
+    "mail": "tester@gmail.com",
+    "contraseña":"1234",
+    "rol": "comprador",
+    "ubicacion": "Chile"
+  }
+
+### Login usuario
+POST http://localhost:3000/api/auth/login
+Content-Type: application/json
+
+{
+  "mail": "tester@gmail.com",
+  "contraseña": "1234"
+}
+
+### Obtener todos los usuarios
+GET http://localhost:3000/api/users/all
+
+
