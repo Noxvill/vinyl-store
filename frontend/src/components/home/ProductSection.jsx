@@ -19,7 +19,8 @@ const ProductsSection = () => {
       <h2>Últimos añadidos</h2>
       <p>Subheading</p>
       <div className="products-grid">
-        {products.map(product => (
+        {/* Limitar la cantidad de productos a 9 usando slice() */}
+        {products.slice(0, 9).map(product => (
           <ProductCard 
             key={product.id} // Asegúrate de usar una clave única
             title={product.titulo} // Ajusta según los campos de la API
