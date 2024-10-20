@@ -62,16 +62,16 @@ CREATE TABLE RESEÑAS (
 
 -- Insertar datos de prueba en USUARIOS
 INSERT INTO USUARIOS (nombre, mail, contraseña, rol, foto_perfil, ubicacion) VALUES 
-('Juan Pérez', 'juan.perez@gmail.com', 'password123', 'vendedor', 'perfil1.png', 'Santiago'),
+('Juan Pérez', 'juan.perez@gmail.com', 'password123', 'admin', 'perfil1.png', 'Santiago'),
 ('María López', 'maria.lopez@gmail.com', 'password123', 'comprador', 'perfil2.png', 'Valparaíso'),
 ('Carlos Díaz', 'carlos.diaz@gmail.com', 'password123', 'vendedor', 'perfil3.png', 'Concepción'),
 ('Ana Torres', 'ana.torres@gmail.com', 'password123', 'comprador', 'perfil4.png', 'La Serena'),
-('Jorge Vidal', 'jorge.vidal@gmail.com', 'password123', 'vendedor', 'perfil5.png', 'Antofagasta'),
+('Jorge Vidal', 'jorge.vidal@gmail.com', 'password123', 'admin', 'perfil5.png', 'Antofagasta'),
 ('Lucía Rojas', 'lucia.rojas@gmail.com', 'password123', 'comprador', 'perfil6.png', 'Osorno'),
 ('Tomás Vega', 'tomas.vega@gmail.com', 'password123', 'vendedor', 'perfil7.png', 'Temuco'),
 ('Isabel Soto', 'isabel.soto@gmail.com', 'password123', 'comprador', 'perfil8.png', 'Rancagua'),
 ('Miguel Mena', 'miguel.mena@gmail.com', 'password123', 'vendedor', 'perfil9.png', 'Puerto Montt'),
-('Laura Peña', 'laura.pena@gmail.com', 'password123', 'comprador', 'perfil10.png', 'Punta Arenas');
+('Laura Peña', 'laura.pena@gmail.com', 'password123', 'admin', 'perfil10.png', 'Punta Arenas');
 
 -- Insertar datos de prueba en CATEGORIAS
 INSERT INTO CATEGORIAS (nombre, descripcion) VALUES 
