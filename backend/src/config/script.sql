@@ -38,7 +38,8 @@ CREATE TABLE PRODUCTOS (
     artista VARCHAR(255),
     ano INT,
     formato VARCHAR(50),
-    condicion VARCHAR(50)
+    condicion VARCHAR(50),
+    imagen_url VARCHAR(255)
 );
 
 -- Crear tabla de COMPRAS

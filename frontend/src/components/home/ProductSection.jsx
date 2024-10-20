@@ -1,20 +1,32 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { GlobalContext } from '../Context/GlobalContext'; // Importa el contexto
 import ProductCard from './ProductCard';
 import './ProductSection.css'; // Estilos específicos para la sección de productos
 
 const ProductsSection = () => {
+  const { products, loading, error } = useContext(GlobalContext); // Accede a productos, carga y error desde el contexto
+
+  if (loading) {
+    return <p>Cargando productos...</p>; // Mostrar mensaje de carga mientras se obtienen los productos
+  }
+
+  if (error) {
+    return <p>Error al cargar los productos: {error}</p>; // Mostrar error si ocurre alguno
+  }
+
   return (
     <section className="products-section">
-      
       <h2>Últimos añadidos</h2>
       <p>Subheading</p>
       <div className="products-grid">
-        <ProductCard title="Título 1" description="Descripción del producto 1" />
-        <ProductCard title="Título 2" description="Descripción del producto 2" />
-        <ProductCard title="Título 3" description="Descripción del producto 3" />
-        <ProductCard title="Título 4" description="Descripción del producto 4" />
-        <ProductCard title="Título 5" description="Descripción del producto 5" />
-        <ProductCard title="Título 6" description="Descripción del producto 6" />
+        {products.map(product => (
+          <ProductCard 
+            key={product.id} // Asegúrate de usar una clave única
+            title={product.titulo} // Ajusta según los campos de la API
+            description={product.descripcion} // Ajusta según los campos de la API
+            imageUrl={product.imagen_url} // Pasar la URL de la imagen
+          />
+        ))}
       </div>
     </section>
   );
