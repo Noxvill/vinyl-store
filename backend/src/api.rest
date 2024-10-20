@@ -4,8 +4,8 @@ Content-Type: application/json
 
   {
     
-    "nombre": "Sugar",
-    "mail": "sugar@gmail.com",
+    "nombre": "final",
+    "mail": "final@gmail.com",
     "contraseña":"1234",
     "rol": "admin",
     "ubicacion": "Chile"
@@ -16,7 +16,7 @@ POST http://localhost:3000/api/auth/login
 Content-Type: application/json
 
 {
-  "mail": "sugar@gmail.com",
+  "mail": "final@gmail.com",
   "contraseña": "1234"
 }
 
