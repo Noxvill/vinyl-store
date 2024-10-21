@@ -30,7 +30,7 @@ export const GlobalProvider = ({ children }) => {
   // Función para registrar un nuevo usuario
   const registerUser = async (username, mail, password) => {
     try {
-      const response = await fetch('http://localhost:3000/api/users/register', { // Reemplaza con tu URL de API
+      const response = await fetch('http://localhost:3000/api/users/register', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
