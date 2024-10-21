@@ -4,8 +4,8 @@ Content-Type: application/json
 
   {
     
-    "nombre": "final",
-    "mail": "final@gmail.com",
+    "nombre": "1",
+    "mail": "111@gmail.com",
     "contraseña":"1234",
     "rol": "admin",
     "ubicacion": "Chile"

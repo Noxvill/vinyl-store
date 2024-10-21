@@ -11,7 +11,8 @@ const NewPublication = () => {
     artist: '',
     year: '',
     format: '',
-    condition: ''
+    condition: '',
+    imageUrl: '' // Nuevo campo para la URL de la imagen
   });
 
   const handleChange = (e) => {
@@ -44,8 +45,15 @@ const NewPublication = () => {
         </div>
         
         <div className="form-group">
-          <label>Subir Foto</label>
-          <input type="file" name="photo" />
+          <label>URL de la Foto</label> {/* Modificado */}
+          <input 
+            type="text" 
+            name="imageUrl" 
+            placeholder="Ingrese la URL de la imagen" 
+            value={form.imageUrl} 
+            onChange={handleChange} 
+            required 
+          />
         </div>
         
         <div className="form-group">
