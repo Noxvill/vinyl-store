@@ -231,7 +231,7 @@ export const GlobalProvider = ({ children }) => {
         throw new Error('Token inválido o no presente');
       }
   
-      const response = await fetch('http://localhost:3000/api/products/newproduct/', {
+      const response = await fetch(`${import.meta.env.VITE_API_URL}/api/products/newproduct/`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
