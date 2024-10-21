@@ -50,18 +50,20 @@ Content-Type: application/json
 
 ### Crear nuevo producto
 POST http://localhost:3000/api/products/newproduct
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MzMsIm1haWwiOiJzdUBnbWFpbC5jb20iLCJyb2wiOiJhZG1pbiIsImlhdCI6MTcyODg4MTA2MiwiZXhwIjoxNzI4ODg0NjYyfQ.egbLe-2mub1txgqScs7lPmtbs0ww2Rk5b1mBFVmeG0w
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MzUsIm1haWwiOiJmaW5hbEBnbWFpbC5jb20iLCJyb2wiOiJjb21wcmFkb3IiLCJpYXQiOjE3Mjk0ODU0MTIsImV4cCI6MTcyOTQ4OTAxMn0.sD9C4h_tvTlxy9uYnmM_o-a7Tq5ZIyCoLX2P1ybeSNk
 Content-Type: application/json
 
 {
-  "titulo": "Disco pulento",
+  "titulo": "Disc3o pulento",
   "descripcion": "Descripción del producto",
   "precio": 25000,
-  "categoria_id": 1,
+  "categoria_id": 2,
   "artista": "Artista Ejemplo",
   "ano": 2023,
   "formato": "Vinilo",
-  "condicion": "Nuevo"
+  "condicion": "Nuevo",
+  "imagen_url": "estado",
+  "estado":"Nuevo"
 }
 
 ### Actualizar producto existente

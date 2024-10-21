@@ -15,8 +15,8 @@ const getAllProducts = async (query) => {
 
 const createProduct = async (productoData) => {
     const SQLRequest = `
-        INSERT INTO productos (titulo, descripcion, precio, categoria_id, vendedor_id, artista, ano, formato, condicion) 
-        VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) 
+        INSERT INTO productos (titulo, descripcion, precio, categoria_id, vendedor_id, artista, ano, formato, condicion, imagen_url, estado) 
+        VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11) 
         RETURNING *`;
     const { rows } = await db.query(SQLRequest, Object.values(productoData));
     return rows[0];

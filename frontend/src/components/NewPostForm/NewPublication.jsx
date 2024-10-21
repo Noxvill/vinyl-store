@@ -1,9 +1,12 @@
-import React, { useState } from 'react';
-import userprofile from '../../assets/emptyuser.png'
+import React, { useState, useContext } from 'react';
+import { GlobalContext } from '../Context/GlobalContext';
+import userprofile from '../../assets/emptyuser.png';
 import './NewPublication.css';
 
 const NewPublication = () => {
+  const { createProduct } = useContext(GlobalContext); // Usar la función createProduct del contexto
   const [form, setForm] = useState({
+    titulo: '', 
     description: '',
     price: '',
     category: '',
@@ -12,7 +15,7 @@ const NewPublication = () => {
     year: '',
     format: '',
     condition: '',
-    imageUrl: '' // Nuevo campo para la URL de la imagen
+    imageUrl: '' 
   });
 
   const handleChange = (e) => {
@@ -21,7 +24,20 @@ const NewPublication = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(form); // Aquí iría la lógica para enviar el formulario
+
+    const productData = {
+      titulo: form.titulo, // Asegurarse de incluir todos los campos
+      descripcion: form.description,
+      precio: form.price,
+      categoria_id: form.category, 
+      artista: form.artist,
+      ano: form.year,
+      formato: form.format,
+      condicion: form.condition,
+      imagen_url: form.imageUrl,
+    };
+
+    createProduct(productData); // Llamar a la función del contexto para crear el producto
   };
 
   return (
@@ -34,6 +50,17 @@ const NewPublication = () => {
 
       <form className="new-publication-form" onSubmit={handleSubmit}>
         <div className="form-group">
+          <label>Título</label>
+          <input 
+            type="text" 
+            name="titulo"
+            placeholder="Escribe el título del artículo"
+            value={form.titulo} 
+            onChange={handleChange} 
+            required 
+          />
+        </div>
+        <div className="form-group">
           <label>Descripción</label>
           <textarea 
             name="description" 
@@ -45,7 +72,7 @@ const NewPublication = () => {
         </div>
         
         <div className="form-group">
-          <label>URL de la Foto</label> {/* Modificado */}
+          <label>URL de la Foto</label>
           <input 
             type="text" 
             name="imageUrl" 
@@ -72,10 +99,10 @@ const NewPublication = () => {
           <label>Categoría</label>
           <select name="category" value={form.category} onChange={handleChange} required>
             <option value="">Seleccione una categoría</option>
-            <option value="Rock">Rock</option>
-            <option value="Pop">Pop</option>
-            <option value="Jazz">Jazz</option>
-            <option value="Hip-hop">Hip-hop</option>
+            <option value="1">Rock</option>
+            <option value="2">Pop</option>
+            <option value="3">Jazz</option>
+            <option value="4">Hip-hop</option>
           </select>
         </div>
 
