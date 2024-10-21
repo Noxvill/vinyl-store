@@ -231,7 +231,7 @@ export const GlobalProvider = ({ children }) => {
         throw new Error('Token inválido o no presente');
       }
   
-      const response = await fetch('https://vinyl-store-backend.onrender.com/api/products/newproduct/', {
+      const response = await fetch('http://localhost:3000/api/products/newproduct/', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
