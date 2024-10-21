@@ -28,27 +28,29 @@ export const GlobalProvider = ({ children }) => {
   };
 
   // Función para registrar un nuevo usuario
-  const registerUser = async (username, mail, password, rol, ubicacion) => {
-    try {
-      const response = await fetch('https://vinyl-store-backend.onrender.com/api/users/register', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({ nombre: username, mail, contraseña: password, rol, ubicacion }) 
-      });
 
-      if (!response.ok) {
-        throw new Error('Error al registrar el usuario');
+    const registerUser = async (username, mail, password, rol, ubicacion) => {
+      try {
+        const response = await fetch(`${process.env.VITE_API_URL}/users/register`, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({ nombre: username, mail, contraseña: password, rol, ubicacion }),
+        });
+    
+        if (!response.ok) {
+          const errorData = await response.json();
+          throw new Error(errorData.message || 'Error al registrar el usuario');
+        }
+    
+        const newUser = await response.json();
+        setUser(newUser);
+      } catch (err) {
+        console.error('Error:', err.message);
+        setError(err.message);
       }
-
-      const newUser = await response.json();
-      setUser(newUser); // Guarda el nuevo usuario en el estado global
-    } catch (err) {
-      console.error('Error:', err.message);
-      setError(err.message);
-    }
-  };
+    };
 
   // Llamar a la API cuando se cargue el componente
   useEffect(() => {
