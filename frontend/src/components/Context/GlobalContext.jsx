@@ -199,7 +199,7 @@ export const GlobalProvider = ({ children }) => {
 
   const login = async (email, password) => {
     try {
-      const response = await fetch('https://vinyl-store-backend.onrender.com/api/auth/login/', {
+      const response = await fetch(`${import.meta.env.VITE_API_URL}/auth/login/`, {
         // const response = await fetch('http://localhost:3000/api/auth/login/', {
         method: 'POST',
         headers: {
