@@ -5,7 +5,7 @@ Content-Type: application/json
   {
     
     "nombre": "1",
-    "mail": "111@gmail.com",
+    "mail": "111s@gmail.com",
     "contraseña":"1234",
     "rol": "admin",
     "ubicacion": "Chile"
