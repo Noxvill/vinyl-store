@@ -29,28 +29,35 @@ export const GlobalProvider = ({ children }) => {
 
   // Función para registrar un nuevo usuario
 
-    const registerUser = async (username, mail, password, rol, ubicacion) => {
-      try {
-        const response = await fetch(`${process.env.VITE_API_URL}/users/register`, {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify({ nombre: username, mail, contraseña: password, rol, ubicacion }),
-        });
-    
-        if (!response.ok) {
-          const errorData = await response.json();
-          throw new Error(errorData.message || 'Error al registrar el usuario');
-        }
-    
-        const newUser = await response.json();
-        setUser(newUser);
-      } catch (err) {
-        console.error('Error:', err.message);
-        setError(err.message);
+  const registerUser = async (username, mail, password, rol, ubicacion) => {
+    try {
+      const response = await fetch(`${process.env.VITE_API_URL}/users/register`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ nombre: username, mail, contraseña: password, rol, ubicacion }),
+      });
+  
+      // Verificar si la respuesta es exitosa
+      if (!response.ok) {
+        const errorData = await response.json(); // Intentar obtener el error del cuerpo de la respuesta
+        throw new Error(errorData.message || 'Error al registrar el usuario');
       }
-    };
+  
+      // Verificar que la respuesta tenga contenido JSON
+      const contentLength = response.headers.get('content-length');
+      if (contentLength && contentLength !== '0') {
+        const newUser = await response.json();
+        setUser(newUser); // Guarda el nuevo usuario en el estado
+      } else {
+        console.log('Registro exitoso sin respuesta en el cuerpo');
+      }
+    } catch (err) {
+      console.error('Error:', err.message);
+      setError(err.message); // Maneja el error en el frontend
+    }
+  };
 
   // Llamar a la API cuando se cargue el componente
   useEffect(() => {
