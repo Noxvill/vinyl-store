@@ -181,7 +181,7 @@ import React, { createContext, useState, useEffect } from 'react';
 // Crea el contexto
 export const GlobalContext = createContext();
 
-// Proveedor del contexto
+// Proveedor del context
 export const GlobalProvider = ({ children }) => {
   const [cart, setCart] = useState([]);
   const [products, setProducts] = useState([]); 
