@@ -1,6 +1,7 @@
 import React, { useState, useContext, useEffect } from 'react';
 import './ItemsForSale.css';
 import { GlobalContext } from '../Context/GlobalContext';
+import { Link } from 'react-router-dom'; // Importa el componente Link
 
 const ItemsForSale = () => {
   const { products, loading, error } = useContext(GlobalContext); // Accede a los productos desde el contexto
@@ -101,6 +102,10 @@ const ItemsForSale = () => {
                 <h4>{product.titulo}</h4>
                 <p>${product.precio}</p>
               </div>
+              {/* Agregar el botón de "Detalle del Producto" */}
+              <Link to={`/producto/${product.id}`} className="product-detail-btn">
+                Detalle del Producto
+              </Link>
             </div>
           ))}
         </div>

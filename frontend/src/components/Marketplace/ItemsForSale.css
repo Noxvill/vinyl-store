@@ -106,3 +106,23 @@ h1 {
   font-size: 16px;
   color: #333;
 }
+
+.product-detail-btn {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 10px 20px;
+  background-color: #333; /* Color oscuro */
+  color: white;
+  text-decoration: none;
+  border-radius: 20px; /* Bordes redondeados */
+  transition: background-color 0.3s ease;
+  font-size: 14px;
+  font-weight: bold;
+  text-align: center;
+  border: none;
+  cursor: pointer;
+}
+
+.product-detail-btn:hover {
+  background-color: #555; /* Cambia el color de fondo al pasar el mouse */
+}
