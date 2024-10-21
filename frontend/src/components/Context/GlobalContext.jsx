@@ -28,25 +28,35 @@ export const GlobalProvider = ({ children }) => {
   };
 
   // Función para registrar un nuevo usuario
-  const registerUser = async (username, mail, password) => {
+  const registerUser = async (username, email, password) => {
     try {
-      const response = await fetch('vinyl-store-backend.onrender.com/api/users/register', {
+      const response = await fetch(`${process.env.REACT_APP_API_URL}/users/register`, {
         method: 'POST',
         headers: {
-          'Content-Type': 'application/json'
+          'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ nombre: username, mail, contraseña: password }) // Ajusta los campos según tu API
+        body: JSON.stringify({
+          nombre: username,
+          email: email,
+          contraseña: password,
+        }),
       });
-
+  
+      // Verificar si hay contenido en la respuesta
       if (!response.ok) {
-        throw new Error('Error al registrar el usuario');
+        const errorData = await response.json(); // Capturar el error del servidor
+        throw new Error(errorData.message || 'Error al registrar el usuario');
       }
-
-      const newUser = await response.json();
-      setUser(newUser); // Guarda el nuevo usuario en el estado global
+  
+      // Solo intentar convertir a JSON si hay contenido
+      if (response.headers.get('content-length') > 0) {
+        const newUser = await response.json();
+        setUser(newUser);  // Guarda el nuevo usuario en el estado
+      } else {
+        console.log('Registro exitoso sin respuesta en el cuerpo');
+      }
     } catch (err) {
       console.error('Error:', err.message);
-      setError(err.message);
     }
   };
 
