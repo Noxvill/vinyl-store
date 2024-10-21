@@ -9,10 +9,11 @@ const app = express();
 
 app.use(express.json());
 
-// Configuración de CORS según el entorno
+// Configuración de CORS para permitir peticiones desde cualquier origen
 app.use(cors({
-    origin: process.env.NODE_ENV === 'production' ? process.env.CLIENT_URL : '*' 
-    // En producción: solo permite el origen definido en CLIENT_URL, en desarrollo: permite todos los orígenes
+    origin: '*',  // Permitir peticiones desde cualquier origen
+    methods: ['GET', 'POST', 'PUT', 'DELETE'],  // Métodos permitidos
+    allowedHeaders: ['Content-Type', 'Authorization']  // Encabezados permitidos
 }));
 
 app.use(loggerManager);
