@@ -275,7 +275,7 @@ export const GlobalProvider = ({ children }) => {
 
   const registerUser = async (username, mail, password, rol, ubicacion) => {
         try {
-          const response = await fetch('http://localhost:3000/api/users/register', {
+          const response = await fetch('https://vinyl-store-backend.onrender.com/api/users/register', {
             method: 'POST',
             headers: {
               'Content-Type': 'application/json',
