@@ -16,8 +16,8 @@ const ProductsSection = () => {
 
   return (
     <section className="products-section">
-      <h2>Últimos añadidos</h2>
-      <p>Subheading</p>
+      <h2>Últimos discos añadidos!</h2>
+      <p></p>
       <div className="products-grid">
         {/* Limitar la cantidad de productos a 9 usando slice() */}
         {products.slice(0, 9).map(product => (

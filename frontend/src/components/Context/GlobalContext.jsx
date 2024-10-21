@@ -27,13 +27,36 @@ export const GlobalProvider = ({ children }) => {
     }
   };
 
+  // Función para registrar un nuevo usuario
+  const registerUser = async (username, mail, password) => {
+    try {
+      const response = await fetch('http://localhost:3000/api/users/register', { // Reemplaza con tu URL de API
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ nombre: username, mail, contraseña: password }) // Ajusta los campos según tu API
+      });
+
+      if (!response.ok) {
+        throw new Error('Error al registrar el usuario');
+      }
+
+      const newUser = await response.json();
+      setUser(newUser); // Guarda el nuevo usuario en el estado global
+    } catch (err) {
+      console.error('Error:', err.message);
+      setError(err.message);
+    }
+  };
+
   // Llamar a la API cuando se cargue el componente
   useEffect(() => {
     fetchProducts();
   }, []);
 
   return (
-    <GlobalContext.Provider value={{ user, setUser, cart, setCart, products, loading, error }}>
+    <GlobalContext.Provider value={{ user, setUser, cart, setCart, products, loading, error, registerUser }}>
       {children}
     </GlobalContext.Provider>
   );
