@@ -10,13 +10,22 @@ const handleGetAllUsers = async (req, res) => {
   }
 };
 
+// Registro de usuario
+// Registro de usuario
 const handleRegister = async (req, res) => {
   const { nombre, mail, contraseña } = req.body;
+  
+  // Verificar si el email ya está registrado
   const userExists = await User.findByEmail(mail);
   if (userExists) return res.status(400).json({ message: 'Email ya registrado' });
 
-  const newUser = await User.createUser(nombre, mail, contraseña);
-  res.status(201).json({ message: 'Usuario registrado exitosamente', newUser });
+  // Crear el usuario
+  try {
+    const newUser = await User.createUser(nombre, mail, contraseña);
+    res.status(201).json({ message: 'Usuario registrado exitosamente', newUser });
+  } catch (error) {
+    res.status(500).json({ message: 'Error en el servidor', error });
+  }
 };
 
 const handleLogin = async (req, res) => {

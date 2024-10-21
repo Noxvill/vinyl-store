@@ -4,7 +4,7 @@ import signuplogo from '../../assets/signup.png';
 import './RegistrationForm.css'; 
 
 const RegistrationForm = () => {
-  const { registerUser } = useContext(GlobalContext); // Usar la función registerUser del contexto
+  const { registerUser } = useContext(GlobalContext);
   const [username, setUsername] = useState('');
   const [mail, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -20,8 +20,7 @@ const RegistrationForm = () => {
 
     try {
       await registerUser(username, mail, password);
-      setError(null); // Reiniciar el error si el registro es exitoso
-      // Redirigir o mostrar un mensaje de éxito
+      setError(null); 
       alert('Registro exitoso');
     } catch (err) {
       setError('Hubo un problema al registrar el usuario');
