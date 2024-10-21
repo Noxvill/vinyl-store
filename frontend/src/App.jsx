@@ -91,6 +91,8 @@ function App() {
             <Route path="/*" element={<NotFound />} />
             <Route path="/Publicaciones" element={<ItemsForSale />} />
             <Route path="/DetalleProducto" element={<ProductDetail />} />
+            <Route path="/" element={<ProductsSection />} />
+        <Route path="/producto/:id" element={<ProductDetail />} /> {/* Ruta dinámica */}
             {/* Proteger la ruta de publicación */}
             <Route
               path="/Publicar"
