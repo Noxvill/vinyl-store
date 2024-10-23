@@ -259,7 +259,7 @@ export const GlobalProvider = ({ children }) => {
 
   const fetchProducts = async () => {
     try {
-      const response = await fetch('https://vinyl-store-backend.onrender.com/api/products/all'); 
+      const response = await fetch(`${import.meta.env.VITE_API_URL}/api/products/all`); 
       if (!response.ok) {
         throw new Error('Error al cargar productos');
       }
@@ -275,7 +275,7 @@ export const GlobalProvider = ({ children }) => {
 
   const registerUser = async (username, mail, password, rol, ubicacion) => {
         try {
-          const response = await fetch('https://vinyl-store-backend.onrender.com/api/users/register', {
+          const response = await fetch(`${import.meta.env.VITE_API_URL}/api/users/register`, {
             method: 'POST',
             headers: {
               'Content-Type': 'application/json',
