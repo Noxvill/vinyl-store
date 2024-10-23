@@ -1,13 +1,34 @@
-import React, { useContext } from 'react';
-import { Link } from 'react-router-dom';
-import { GlobalContext } from '../Context/GlobalContext';
+import React, { useContext, useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
+import { GlobalContext } from '../Context/GlobalContext'; // Importar el contexto
 import './Header.css';
 import logo from '../../assets/logostore.png';
 
 const Header = () => {
-  const { user, logout } = useContext(GlobalContext);
+  const { user, logout, products } = useContext(GlobalContext); // Asegúrate de obtener `products` del contexto también
+  const [searchTerm, setSearchTerm] = useState('');
+  const [filteredProducts, setFilteredProducts] = useState([]);
+  const navigate = useNavigate();
 
-  console.log('Estado del usuario en el header:', user); // Verifica si el usuario se actualiza correctamente
+  const handleSearchChange = (e) => {
+    const term = e.target.value;
+    setSearchTerm(term);
+
+    if (term.length > 0) {
+      const filtered = products.filter(product => 
+        product.titulo.toLowerCase().includes(term.toLowerCase())
+      );
+      setFilteredProducts(filtered);
+    } else {
+      setFilteredProducts([]);
+    }
+  };
+
+  const handleProductSelect = (id) => {
+    navigate(`/product/${id}`);
+    setSearchTerm('');
+    setFilteredProducts([]);
+  };
 
   return (
     <header className="header">
@@ -18,17 +39,37 @@ const Header = () => {
           style={{ width: '120px', height: 'auto', maskImage: 'radial-gradient(circle, rgba(0, 0, 0, 1) 60%, rgba(0, 0, 0, 0) 100%)'}} 
         />
       </Link>
-      <input type="text" placeholder="Buscar disco..." className="search-bar" />
+
+      <div className="search-bar-container">
+        <input 
+          type="text" 
+          placeholder="Buscar disco..." 
+          className="search-bar" 
+          value={searchTerm}
+          onChange={handleSearchChange}
+        />
+
+        {filteredProducts.length > 0 && (
+          <ul className="search-results">
+            {filteredProducts.map(product => (
+              <li 
+                key={product.id} 
+                onClick={() => handleProductSelect(product.id)} 
+                className="search-result-item"
+              >
+                {product.titulo}
+              </li>
+            ))}
+          </ul>
+        )}
+      </div>
+
       <nav className="nav">
         <Link to="/Publicaciones" className="login-btn">Explorar</Link>
-
-        {/* Mostrar el botón "Publicar" solo si el usuario está autenticado */}
-        {user && (
-          <Link to="/publicar" className="login-btn">Publicar</Link>
-        )}
+        {user && <Link to="/publicar" className="login-btn">Publicar</Link>}
       </nav>
+      
       <div className="actions">
-        {/* Si el usuario está autenticado, mostrar "Mi Perfil" y el botón de Logout */}
         {user ? (
           <>
             <Link to="/profile" className="register-btn">Mi Perfil</Link>

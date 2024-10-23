@@ -65,3 +65,29 @@
 .cart-btn:hover {
   background-color: #b4cd7d; /* Color del carrito al hacer hover */
 }
+
+.search-bar-container {
+  position: relative;
+}
+
+.search-results {
+  position: absolute;
+  background-color: white;
+  border: 1px solid #ccc;
+  width: 100%;
+  max-height: 200px;
+  overflow-y: auto;
+  z-index: 1;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.search-result-item {
+  padding: 10px;
+  cursor: pointer;
+}
+
+.search-result-item:hover {
+  background-color: #f0f0f0;
+}
