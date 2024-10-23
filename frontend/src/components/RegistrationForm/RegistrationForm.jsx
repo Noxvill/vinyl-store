@@ -30,14 +30,14 @@ const RegistrationForm = () => {
   return (
     <div className="form-container">
       <img src={signuplogo} alt="Logo" className="logo" />
-      <h2>Bienvenido</h2>
-      <p>Registrarse</p>
+      <h2>Registrarse</h2>
+      <p>Ingrese los datos solicitados</p>
       <form className="registration-form" onSubmit={handleSubmit}>
         <div className="form-group">
           <label>Nombre de usuario</label>
           <input 
             type="text" 
-            placeholder="Ingrese un nombre de usuario" 
+            placeholder="Usuario" 
             value={username} 
             onChange={(e) => setUsername(e.target.value)} 
             className="valid-input" 
@@ -47,7 +47,7 @@ const RegistrationForm = () => {
           <label>Email</label>
           <input 
             type="email" 
-            placeholder="Ingrese su Email" 
+            placeholder="Ingrese una Email" 
             value={mail}
             onChange={(e) => setEmail(e.target.value)} 
             className="valid-input" 
@@ -64,7 +64,7 @@ const RegistrationForm = () => {
         </div>
         <button type="submit" className="register-btn">Guardar</button>
         {error && <p className="error">{error}</p>}
-        <p>Ya tienes una cuenta? <a href="#">Ir a Login</a></p>
+        <p>Ya tienes una cuenta? <a href="/login">Ir a Login</a></p>
       </form>
     </div>
   );

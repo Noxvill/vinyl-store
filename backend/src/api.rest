@@ -16,7 +16,7 @@ POST http://localhost:3000/api/auth/login
 Content-Type: application/json
 
 {
-  "mail": "final@gmail.com",
+  "mail": "tinty@gmail.com",
   "contraseña": "1234"
 }
 
@@ -26,8 +26,7 @@ GET http://localhost:3000/api/users/all
 ### Obtener el perfil de un usuario
 
 GET http://localhost:3000/api/users/profile
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MzMsIm1haWwiOiJzdUBnbWFpbC5jb20iLCJyb2wiOiJhZG1pbiIsImlhdCI6MTcyODg4MTA2MiwiZXhwIjoxNzI4ODg0NjYyfQ.egbLe-2mub1txgqScs7lPmtbs0ww2Rk5b1mBFVmeG0w
-
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NTQsIm1haWwiOiJ0aW50eUBnbWFpbC5jb20iLCJyb2wiOiJjb21wcmFkb3IiLCJpYXQiOjE3Mjk3MTYxOTcsImV4cCI6MTcyOTcxOTc5N30.2_yWO5A8Y_KuQOLevCDCOLds_jgyLZUWVecNCQu6Joc
 
 ### Actualizar perfil del usuario
 PUT http://localhost:3000/api/users/profile
