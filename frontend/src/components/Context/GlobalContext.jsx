@@ -197,26 +197,52 @@ export const GlobalProvider = ({ children }) => {
     }
   }, []);
 
+  // const login = async (email, password) => {
+  //   try {
+  //     const response = await fetch(`${import.meta.env.VITE_API_URL}/api/auth/login/`, {
+  //       // const response = await fetch('http://localhost:3000/api/auth/login/', {
+  //       method: 'POST',
+  //       headers: {
+  //         'Content-Type': 'application/json',
+  //       },
+  //       body: JSON.stringify({ mail: email, contraseña: password })
+  //     });
+
+  //     if (!response.ok) {
+  //       throw new Error('Error al iniciar sesión');
+  //     }
+
+  //     const data = await response.json();
+  //     console.log('Respuesta de la API:', data); 
+  //     setUser(data.user); 
+  //     setToken(data.token); 
+  //     localStorage.setItem('token', data.token); 
+  //   } catch (error) {
+  //     console.error('Error de autenticación:', error.message);
+  //     throw error;
+  //   }
+  // };
+
   const login = async (email, password) => {
     try {
       const response = await fetch(`${import.meta.env.VITE_API_URL}/api/auth/login/`, {
-        // const response = await fetch('http://localhost:3000/api/auth/login/', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({ mail: email, contraseña: password })
       });
-
+  
       if (!response.ok) {
-        throw new Error('Error al iniciar sesión');
+        const errorData = await response.json(); // Obtener información detallada del error
+        console.log('Error en el login:', errorData); // Ayuda para depurar
+        throw new Error(errorData.message || 'Error al iniciar sesión');
       }
-
+  
       const data = await response.json();
-      console.log('Respuesta de la API:', data); 
-      setUser(data.user); 
-      setToken(data.token); 
-      localStorage.setItem('token', data.token); 
+      setUser(data.user);
+      setToken(data.token);
+      localStorage.setItem('token', data.token);
     } catch (error) {
       console.error('Error de autenticación:', error.message);
       throw error;
