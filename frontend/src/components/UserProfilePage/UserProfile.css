@@ -1,50 +1,95 @@
 .profile-container {
-    background-color: #f5f5f5;
-    padding: 0px;
-    min-height: calc(100vh - 150px); /* Ajuste para que la página sea responsiva, excluyendo el header y footer */
-  }
-  
-  .profile-header {
-    background-color: #3a3737;
-    text-align: center;
-    padding: 50px 0;
-    color: #d4a017;
-  }
-  
-  .profile-picture-section {
-    background-color: black;
-    display: flex;
-    justify-content: center;
-    padding: 20px 0;
-  }
-  
-  .profile-picture {
-    text-align: center;
-    color: white;
-  }
-  
-  .profile-picture img {
-    border-radius: 50%;
-    width: 150px;
-    height: 150px;
-  }
-  
-  .profile-details {
-    padding: 30px;
-    background-color: #f9f9f9;
-    margin-top: 20px;
-    font-size: 18px;
-  }
-  
-  .profile-details p {
-    margin: 10px 0;
-  }
+  background-color: #f5f5f5;
+  padding: 0px;
+  min-height: calc(100vh - 150px); /* Ajuste para que la página sea responsiva, excluyendo el header y footer */
+}
 
-  .profile-picture img {
-    width: 150px;
-    height: 150px;
-    border-radius: 50%; /* Para que la imagen sea circular */
-    object-fit: cover;  /* Ajusta la imagen al tamaño sin deformarla */
-  }
-  
-  
+.profile-header {
+  background-color: #3a3737;
+  text-align: center;
+  padding: 50px 0;
+  color: #d4a017;
+}
+
+.profile-picture-section {
+  background-color: black;
+  display: flex;
+  justify-content: center;
+  padding: 20px 0;
+}
+
+.profile-picture {
+  text-align: center;
+  color: white;
+}
+
+.profile-picture img {
+  border-radius: 50%;
+  width: 150px;
+  height: 150px;
+}
+
+.profile-details {
+  padding: 30px;
+  background-color: #f9f9f9;
+  margin-top: 20px;
+  font-size: 18px;
+}
+
+.profile-details p {
+  margin: 10px 0;
+}
+
+.profile-products {
+  margin-top: 30px;
+  margin-bottom: 30px;
+  text-align: center; /* Centra el título */
+}
+
+
+
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 columnas */
+  gap: 20px;
+}
+
+/* Pagination buttons */
+.pagination {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.pagination button {
+  background-color: #333;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  margin: 0 5px;
+  cursor: pointer;
+}
+
+.pagination button.active {
+  background-color: #666;
+}
+
+.product-card {
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  text-align: center;
+  transition: transform 0.2s;
+}
+
+.product-card img {
+  max-width: 100%;
+  height: 150px;
+  object-fit: cover;
+  margin-bottom: 10px;
+}
+
+.product-card:hover {
+  transform: scale(1.05);
+}
