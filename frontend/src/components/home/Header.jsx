@@ -1,34 +1,21 @@
-import React, { useContext, useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
-import { GlobalContext } from '../Context/GlobalContext'; // Importar el contexto
+import React, { useContext, useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
+import { GlobalContext } from '../Context/GlobalContext';
 import './Header.css';
 import logo from '../../assets/logostore.png';
 
 const Header = () => {
-  const { user, logout, products } = useContext(GlobalContext); // Asegúrate de obtener `products` del contexto también
-  const [searchTerm, setSearchTerm] = useState('');
-  const [filteredProducts, setFilteredProducts] = useState([]);
-  const navigate = useNavigate();
+  const { user, logout, token } = useContext(GlobalContext); // Accedemos al token desde el contexto
+  const [tokenPresent, setTokenPresent] = useState(false);
 
-  const handleSearchChange = (e) => {
-    const term = e.target.value;
-    setSearchTerm(term);
-
-    if (term.length > 0) {
-      const filtered = products.filter(product => 
-        product.titulo.toLowerCase().includes(term.toLowerCase())
-      );
-      setFilteredProducts(filtered);
+  // Verificar si el token en el contexto está presente y actualizar el estado
+  useEffect(() => {
+    if (token) {
+      setTokenPresent(true);
     } else {
-      setFilteredProducts([]);
+      setTokenPresent(false);
     }
-  };
-
-  const handleProductSelect = (id) => {
-    navigate(`/product/${id}`);
-    setSearchTerm('');
-    setFilteredProducts([]);
-  };
+  }, [token]); // Se actualiza cada vez que cambia el token
 
   return (
     <header className="header">
@@ -39,38 +26,18 @@ const Header = () => {
           style={{ width: '120px', height: 'auto', maskImage: 'radial-gradient(circle, rgba(0, 0, 0, 1) 60%, rgba(0, 0, 0, 0) 100%)'}} 
         />
       </Link>
-
-      <div className="search-bar-container">
-        <input 
-          type="text" 
-          placeholder="Buscar disco..." 
-          className="search-bar" 
-          value={searchTerm}
-          onChange={handleSearchChange}
-        />
-
-        {filteredProducts.length > 0 && (
-          <ul className="search-results">
-            {filteredProducts.map(product => (
-              <li 
-                key={product.id} 
-                onClick={() => handleProductSelect(product.id)} 
-                className="search-result-item"
-              >
-                {product.titulo}
-              </li>
-            ))}
-          </ul>
-        )}
-      </div>
-
+      <input type="text" placeholder="Buscar disco..." className="search-bar" />
       <nav className="nav">
         <Link to="/Publicaciones" className="login-btn">Explorar</Link>
-        {user && <Link to="/publicar" className="login-btn">Publicar</Link>}
+
+        {/* Mostrar el botón "Publicar" solo si hay un token presente */}
+        {tokenPresent && (
+          <Link to="/publicar" className="login-btn">Publicar</Link>
+        )}
       </nav>
-      
       <div className="actions">
-        {user ? (
+        {/* Si hay un token presente, mostrar "Mi Perfil" y el botón de Logout */}
+        {tokenPresent ? (
           <>
             <Link to="/profile" className="register-btn">Mi Perfil</Link>
             <button onClick={logout} className="logout-btn">Cerrar Sesión</button>
