@@ -4,7 +4,7 @@ import userprofile from '../../assets/emptyuser.png';
 import './NewPublication.css';
 
 const NewPublication = () => {
-  const { createProduct } = useContext(GlobalContext); // Usar la función createProduct del contexto
+  const { createProduct } = useContext(GlobalContext); 
   const [form, setForm] = useState({
     titulo: '', 
     description: '',
@@ -18,15 +18,18 @@ const NewPublication = () => {
     imageUrl: '' 
   });
 
+  const [message, setMessage] = useState(''); 
+  const [isModalOpen, setModalOpen] = useState(false); // Estado para manejar el modal
+
   const handleChange = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
     const productData = {
-      titulo: form.titulo, // Asegurarse de incluir todos los campos
+      titulo: form.titulo, 
       descripcion: form.description,
       precio: form.price,
       categoria_id: form.category, 
@@ -37,7 +40,19 @@ const NewPublication = () => {
       imagen_url: form.imageUrl,
     };
 
-    createProduct(productData); // Llamar a la función del contexto para crear el producto
+    try {
+      await createProduct(productData); 
+      setMessage('Producto publicado con éxito');
+    } catch (error) {
+      setMessage('No fue posible realizar la publicación del producto');
+    }
+
+    // Mostrar el modal después de la operación
+    setModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setModalOpen(false); // Cierra el modal
   };
 
   return (
@@ -162,6 +177,16 @@ const NewPublication = () => {
 
         <button type="submit" className="submit-btn">Publicar Artículo</button>
       </form>
+
+      {/* Modal para mostrar el mensaje */}
+      {isModalOpen && (
+        <div className="modal">
+          <div className="modal-content">
+            <h2>{message}</h2>
+            <button onClick={closeModal}>Cerrar</button>
+          </div>
+        </div>
+      )}
     </div>
   );
 };
