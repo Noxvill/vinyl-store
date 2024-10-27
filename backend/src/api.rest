@@ -53,7 +53,7 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MzUsIm1haWwiO
 Content-Type: application/json
 
 {
-  "titulo": "Disc3o pulento",
+  "titulo": "Disc3 pulento",
   "descripcion": "Descripción del producto",
   "precio": 25000,
   "categoria_id": 2,
