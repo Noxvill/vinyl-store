@@ -51,11 +51,22 @@
 
 const Producto = require('../models/product.models');
 
+// const handleGetAllProducts = async (req, res) => {
+//   try {
+//     const productos = await Producto.getAllProducts(req.query);
+//     res.json(productos);
+//   } catch (error) {
+//     res.status(500).send('Error');
+//   }
+// };
+
 const handleGetAllProducts = async (req, res) => {
   try {
     const productos = await Producto.getAllProducts(req.query);
+    console.log('Productos enviados por la API:', productos); // <-- Agrega este log
     res.json(productos);
   } catch (error) {
+    console.error('Error en handleGetAllProducts:', error);
     res.status(500).send('Error');
   }
 };

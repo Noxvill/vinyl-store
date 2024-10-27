@@ -112,13 +112,16 @@ export const GlobalProvider = ({ children }) => {
         throw new Error('Error al cargar productos');
       }
       const data = await response.json();
-      setProducts(data); 
-      setLoading(false); 
+      console.log('Productos obtenidos:', data); // <-- Aquí aseguramos que productos tienen el campo "precio"
+      setProducts(data);
+      setLoading(false);
     } catch (err) {
+      console.error('Error en fetchProducts:', err); // <-- Asegúrate de manejar correctamente el error
       setError(err.message);
       setLoading(false);
     }
   };
+  
 
   // Nueva función para obtener los 9 productos más recientes
   const getLastProducts = () => {
