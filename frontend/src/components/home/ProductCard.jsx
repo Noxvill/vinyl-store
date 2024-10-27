@@ -31,7 +31,7 @@ const ProductCard = ({ id, title, description, imageUrl }) => {
         <img src={imageUrl} alt={title} className="product-image" />
       </div>
       <h3>{title}</h3>
-      <p>{description}</p>
+      <p className='desc'>{description}</p>
       <Link to={`/producto/${id}`} className="login-btn">
         Detalle del Producto
       </Link>
