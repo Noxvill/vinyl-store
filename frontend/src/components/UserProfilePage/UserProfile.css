@@ -1,6 +1,6 @@
 .profile-container {
     background-color: #f5f5f5;
-    padding: 20px;
+    padding: 0px;
     min-height: calc(100vh - 150px); /* Ajuste para que la página sea responsiva, excluyendo el header y footer */
   }
   
