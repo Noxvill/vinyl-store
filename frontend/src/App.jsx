@@ -58,7 +58,7 @@ import ProductsSection from './components/home/ProductSection';
 import RegistrationPage from './components/RegistrationForm/RegistrationPage';
 import LoginPage from './components/LoginForm/LoginPage';
 import NotFound from './components/home/NotFound';
-import ItemsForSale from './components/Marketplace/ItemsForSale'
+// import ItemsForSale from './components/Marketplace/ItemsForSale'
 import ProductDetail from './components/Marketplace/ProductDetail'
 import NewPublication from './components/NewPostForm/NewPublication';
 import Footer from './components/home/Footer';
@@ -90,7 +90,7 @@ function App() {
             <Route path="/productos" element={<ProductsSection />} />
             <Route path="/product/:id" element={<ProductDetail />} />
             <Route path="/*" element={<NotFound />} />
-            <Route path="/Publicaciones" element={<ItemsForSale />} />
+            <Route path="/Publicaciones" element={<ProductsSection/>} />
             <Route path="/DetalleProducto" element={<ProductDetail />} />
             <Route path="/" element={<ProductsSection />} />
         <Route path="/producto/:id" element={<ProductDetail />} /> {/* Ruta dinámica */}

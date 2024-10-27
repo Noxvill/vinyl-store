@@ -21,6 +21,32 @@ export const GlobalProvider = ({ children }) => {
   }, [token]);
 
   // Función para iniciar sesión
+  // const login = async (email, password) => {
+  //   try {
+  //     const response = await fetch(`${import.meta.env.VITE_API_URL}/api/auth/login/`, {
+  //       method: 'POST',
+  //       headers: {
+  //         'Content-Type': 'application/json',
+  //       },
+  //       body: JSON.stringify({ mail: email, contraseña: password })
+  //     });
+  
+  //     if (!response.ok) {
+  //       const errorData = await response.json();
+  //       console.log('Error en el login:', errorData);
+  //       throw new Error(errorData.message || 'Error al iniciar sesión');
+  //     }
+  
+  //     const data = await response.json();
+  //     setUser(data.user); 
+  //     setToken(data.token); 
+  //     localStorage.setItem('token', data.token); 
+  //   } catch (error) {
+  //     console.error('Error de autenticación:', error.message);
+  //     throw error;
+  //   }
+  // };
+
   const login = async (email, password) => {
     try {
       const response = await fetch(`${import.meta.env.VITE_API_URL}/api/auth/login/`, {
@@ -33,11 +59,11 @@ export const GlobalProvider = ({ children }) => {
   
       if (!response.ok) {
         const errorData = await response.json();
-        console.log('Error en el login:', errorData);
         throw new Error(errorData.message || 'Error al iniciar sesión');
       }
   
       const data = await response.json();
+      console.log("Datos del usuario logueado:", data.user); // Verifica que el ID del usuario se obtenga
       setUser(data.user); 
       setToken(data.token); 
       localStorage.setItem('token', data.token); 
@@ -46,6 +72,7 @@ export const GlobalProvider = ({ children }) => {
       throw error;
     }
   };
+  
 
   // Función para obtener el perfil del usuario
   const fetchUserProfile = async () => {

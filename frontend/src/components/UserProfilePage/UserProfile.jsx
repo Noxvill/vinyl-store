@@ -53,12 +53,14 @@ const UserProfile = () => {
           {currentProducts.length > 0 ? (
             currentProducts.map((product) => (
               <ProductCard
-                key={product.id}
-                id={product.id}
-                title={product.titulo}
-                description={product.descripcion}
-                imageUrl={product.imagen_url}
-              />
+  key={product.id}
+  id={product.id}
+  title={product.titulo}
+  description={product.descripcion}
+  imageUrl={product.imagen_url}
+  price={product.precio} // Asegúrate de pasar el precio también
+  vendedor_id={product.vendedor_id} // Pasar el vendedor_id
+/>
             ))
           ) : (
             <p>No tienes productos en venta.</p>

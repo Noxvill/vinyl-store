@@ -23,13 +23,14 @@ const ProductsSection = () => {
       <div className="products-grid">
         {sortedProducts.slice(0, 9).map((product) => (
           <ProductCard 
-            key={product.id} 
-            id={product.id} 
-            title={product.titulo} 
-            description={product.descripcion} 
-            imageUrl={product.imagen_url} 
-            price={product.precio} // Pasar el precio al componente ProductCard
-          />
+          key={product.id} 
+          id={product.id} 
+          title={product.titulo} 
+          description={product.descripcion} 
+          imageUrl={product.imagen_url}
+          price={product.precio}
+          vendedor_id={product.vendedor_id} // Asegúrate de pasar el vendedor_id
+        />
         ))}
       </div>
     </section>
