@@ -1,30 +1,92 @@
 .hero {
-  background-image: url('../../assets/herosection.jpg'); 
-  background-size: cover; 
-  background-position: center; 
-  background-repeat: no-repeat; 
+  position: relative;
+  background-image: url('../../assets/herosection.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
   background-color: #d8b9b2;
   text-align: center;
   padding: 100px 20px;
   font-size: 36px;
-  
+  overflow: hidden;
 }
 
-.hero h1 {
-  color: rgb(129, 27, 253) !important;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
-}
-/* Ajuste del tamaño del texto y el padding en pantallas pequeñas */
-@media (max-width: 768px) {
-  .hero {
-    font-size: 28px;
-    padding: 50px 20px;
-  }
+.hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: inherit;
+  background-size: cover;
+  background-position: center;
+  filter: blur(4px); /* Ajusta el desenfoque a 4px para suavizar */
+  z-index: 1;
+  transform: scale(1.1);
 }
 
-@media (max-width: 480px) {
-  .hero {
-    font-size: 24px;
-    padding: 30px 10px;
+.hero-content {
+  position: relative;
+  z-index: 2;
+  padding-bottom: 100px;
+}
+
+/* Estilo del título principal */
+.tp1 {
+  color: #e0e0e0; /* Un color gris suave */
+  font-family: 'Josefin Sans', sans-serif; /* Fuente elegante */
+  text-transform: uppercase; /* Convertir todo el texto en mayúsculas */
+  letter-spacing: 2px; /* Separación entre letras para elegancia */
+  text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.5); /* Sombra sutil para destacar */
+  font-size: 4rem; /* Tamaño grande y llamativo */
+  transition: color 0.3s ease; /* Transición de color suave */
+}
+
+/* Efecto hover para el título principal */
+.tp1:hover {
+  color: #ffffff; /* Cambia el color al pasar el mouse */
+}
+
+/* Estilo de la palabra "Store" con efecto llamativo */
+.cosmos-text {
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  font-family: 'Josefin Sans', sans-serif;
+  color: #f4e04d; /* Color amarillo dorado para hacerla más visible */
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+  font-size: 5rem;
+  position: relative;
+}
+
+.cosmos-text em {
+  font-size: 4.5rem; /* Tamaño de las letras */
+  transition: transform 0.3s ease, color 0.3s ease; /* Transición suave */
+}
+
+.cosmos-text em:hover {
+  transform: scale(1.1); /* Agrandar ligeramente al pasar el mouse */
+  color: #e0e0e0; /* Cambia el color al pasar el mouse */
+}
+
+/* Efecto para los planetas que giran */
+/* Mantén las letras girando en círculo */
+.planet {
+  position: relative;
+  /* animation: planet-rotate s linear infinite; */
+}
+
+
+
+/* Punto de origen compartido */
+.planet.left,
+.planet.right {
+  transform-origin: 60px 60px; /* Punto de origen común para ambas letras */
+}
+
+@keyframes planet-rotate {
+  100% {
+    transform: rotate(1turn);
   }
 }

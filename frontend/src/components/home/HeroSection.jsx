@@ -1,11 +1,20 @@
 import React from 'react';
-import './HeroSection.css'; // Estilo fspara la sección Hero
+import './HeroSection.css'; // Estilos para la sección Hero
 
 const HeroSection = () => {
   return (
-    <section className="hero">
-      <h1>Bienvenido a Vinyl Store</h1>
-    </section>
+    <div className="hero">
+      <div className="hero-content">
+        <h1 className="tp1"><strong>Bienvenido a Vinyl</strong></h1>
+        <h1 className="cosmos-text">
+          <em>S</em>
+          <em className="planet left">T</em>
+          <em>O</em>
+          <em>R</em>
+          <em className="planet right">E</em>
+        </h1>
+      </div>
+    </div>
   );
 };
 
