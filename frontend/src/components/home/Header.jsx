@@ -45,7 +45,7 @@ const Header = () => {
         <img 
           src={logo} 
           alt="Logo" 
-          style={{ width: '120px', height: 'auto', maskImage: 'radial-gradient(circle, rgba(0, 0, 0, 1) 60%, rgba(0, 0, 0, 0) 100%)' }} 
+          style={{ width: '80px', height: 'auto', maskImage: 'radial-gradient(circle, rgba(0, 0, 0, 1) 60%, rgba(0, 0, 0, 0) 100%)' }} 
         />
       </Link>
 
