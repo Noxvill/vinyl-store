@@ -9,7 +9,7 @@
 .image-placeholder {
   width: 70%;
   height: 150px; /* Ajustar la altura de la imagen */
-  background-color: #eee;
+  background-color: hsl(0, 0%, 100%);
   overflow: hidden; /* Asegurarse de que la imagen no sobresalga */
   margin: 0 auto 0px;
 }
