@@ -19,7 +19,7 @@ const ProductsSection = () => {
 
   return (
     <section className="products-section">
-      <h2>Últimos discos añadidos!</h2>
+     <strong> <h2 className='titl'>Publicaciones Recientes!</h2></strong>
       <div className="products-grid">
         {sortedProducts.slice(0, 9).map((product) => (
           <ProductCard 
