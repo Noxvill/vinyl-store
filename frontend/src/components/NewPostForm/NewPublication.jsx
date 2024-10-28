@@ -1,10 +1,10 @@
 import React, { useState, useContext } from 'react';
 import { GlobalContext } from '../Context/GlobalContext';
-import userprofile from '../../assets/emptyuser.png';
+import userprofile from '../../assets/emptyuser.png'; // Imagen predeterminada
 import './NewPublication.css';
 
 const NewPublication = () => {
-  const { createProduct } = useContext(GlobalContext); 
+  const { createProduct, user } = useContext(GlobalContext); // Acceder a los datos del usuario
   const [form, setForm] = useState({
     titulo: '', 
     description: '',
@@ -19,7 +19,7 @@ const NewPublication = () => {
   });
 
   const [message, setMessage] = useState(''); 
-  const [isModalOpen, setModalOpen] = useState(false); // Estado para manejar el modal
+  const [isModalOpen, setModalOpen] = useState(false);
 
   const handleChange = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });
@@ -47,20 +47,24 @@ const NewPublication = () => {
       setMessage('No fue posible realizar la publicación del producto');
     }
 
-    // Mostrar el modal después de la operación
     setModalOpen(true);
   };
 
   const closeModal = () => {
-    setModalOpen(false); // Cierra el modal
+    setModalOpen(false);
   };
 
   return (
     <div className="new-publication-container">
       <h1>Vender Artículo</h1>
       <div className="user-info">
-        <img src={userprofile} alt="Usuario" className="user-img" />
-        <h2>Usuario</h2>
+        {/* Mostrar la foto y el nombre del usuario logueado, o una imagen y nombre predeterminados si no está logueado */}
+        <img 
+          src={user && user.foto_perfil ? user.foto_perfil : userprofile} 
+          alt="Usuario" 
+          className="user-img" 
+        />
+        <h2>{user ? user.nombre : 'Usuario'}</h2>
       </div>
 
       <form className="new-publication-form" onSubmit={handleSubmit}>
