@@ -1,108 +1,99 @@
 .product-detail-container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 20px;
-    background-color: white;
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  }
-  
-  h1 {
-    text-align: center;
-    color: #8b6f2e;
-    font-size: 36px;
-    margin-bottom: 20px;
-  }
-  
-  .product-detail-content {
-    display: flex;
-    gap: 40px;
-  }
-  
-  .product-image-section {
-    flex: 1;
-  }
-  
-  .product-image {
-    width: 100%;
-    border-radius: 10px;
-  }
-  
-  .product-info-section {
-    flex: 2;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-  }
-  
-  h2 {
-    font-size: 24px;
-    margin-bottom: 10px;
-  }
-  
-  .product-price {
-    font-size: 28px;
-    color: #333;
-    margin-bottom: 20px;
-  }
-  
-  .product-description {
-    margin-bottom: 20px;
-    font-size: 16px;
-    color: #666;
-  }
-  
-  .product-meta div {
-    margin-bottom: 10px;
-    font-size: 16px;
-  }
-  
-  .buy-now-btn {
-    padding: 15px 30px;
-    background-color: #333;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 18px;
-    align-self: flex-start;
-    width: 220px;
-  }
-  
-  .buy-now-btn:hover {
-    background-color: #555;
-  }
-  
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  text-align: center; /* Alinea el texto, la imagen y los botones en el centro */
+}
 
-  .delete-btn {
-    padding: 15px 30px;
-    background-color: #d9534f;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 18px;
-    margin-top: 10px;
-    width: 220px;
-  }
-  
-  .delete-btn:hover {
-    background-color: #c9302c;
-  }
-  
-  .update-btn, .save-btn {
-    padding: 15px 30px;
-    background-color: #5cb85c;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 18px;
-    margin-top: 10px;
-    width: 220px;
-  }
-  
-  .update-btn:hover, .save-btn:hover {
-    background-color: #4cae4c;
-  }
-  
+h1 {
+  color: #8b6f2e;
+  font-size: 36px;
+  margin-bottom: 20px;
+  word-wrap: break-word;
+  word-break: break-word;
+  overflow-wrap: break-word;
+}
+
+.product-detail-content {
+  display: flex;
+  flex-direction: column; /* Asegura que los elementos se apilen verticalmente */
+  align-items: center; /* Centra todos los elementos horizontalmente */
+  gap: 20px; /* Espacio entre los elementos */
+}
+
+.product-image-section {
+  flex: none; /* Permite que la imagen mantenga su tamaño */
+}
+
+.product-image {
+  max-width: 100%;
+  width: 220px;
+  height: auto;
+  border-radius: 10px;
+}
+
+.product-info-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Centra los botones y campos en el contenedor */
+}
+
+h2 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.product-price {
+  font-size: 20px;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.product-description {
+  margin-bottom: 20px;
+  font-size: 16px;
+  color: #666;
+}
+
+.product-meta div {
+  display: flex;
+  justify-content: space-between; /* Distribuye el texto y el input */
+  align-items: center; /* Alinea verticalmente */
+  margin-bottom: 10px;
+  font-size: 16px;
+}
+
+.product-meta input,
+.product-meta textarea {
+  flex: 1; /* Permite que los inputs se ajusten */
+  margin-left: 10px; /* Espacio entre el label y el input */
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+textarea {
+  resize: vertical; /* Permite ajustar verticalmente el tamaño del textarea */
+  min-height: 50px; /* Altura mínima del textarea */
+}
+
+
+.buy-now-btn, .delete-btn, .update-btn, .save-btn {
+  padding: 15px 30px;
+  background-color: #333;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 18px;
+  margin-top: 10px;
+  width: 220px;
+  text-align: center;
+}
+
+.buy-now-btn:hover, .delete-btn:hover, .update-btn:hover, .save-btn:hover {
+  background-color: #555;
+}

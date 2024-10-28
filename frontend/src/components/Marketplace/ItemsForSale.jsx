@@ -14,19 +14,35 @@ const ItemsForSale = () => {
   const indexOfFirstItem = indexOfLastItem - itemsPerPage;
 
   // Filtrar y ordenar los productos según el término de búsqueda y opción de ordenamiento
-  const filteredProducts = products
-    .filter((product) =>
-      product.titulo.toLowerCase().includes(searchTerm.toLowerCase())
-    )
-    .sort((a, b) => {
-      if (sortOption === 'price-asc') {
-        return a.precio - b.precio;
-      } else if (sortOption === 'price-desc') {
-        return b.precio - a.precio;
-      } else {
-        return new Date(b.fecha_publicacion) - new Date(a.fecha_publicacion);
-      }
-    });
+  // const filteredProducts = products
+  //   .filter((product) =>
+  //     product.titulo.toLowerCase().includes(searchTerm.toLowerCase())
+  //   )
+  //   .sort((a, b) => {
+  //     if (sortOption === 'price-asc') {
+  //       return a.precio - b.precio;
+  //     } else if (sortOption === 'price-desc') {
+  //       return b.precio - a.precio;
+  //     } else {
+  //       return new Date(b.fecha_publicacion) - new Date(a.fecha_publicacion);
+  //     }
+  //   });
+
+  // Asegúrate de que el título exista antes de aplicar el método toLowerCase
+const filteredProducts = products
+.filter((product) =>
+  product.titulo ? product.titulo.toLowerCase().includes(searchTerm.toLowerCase()) : false
+)
+.sort((a, b) => {
+  if (sortOption === 'price-asc') {
+    return a.precio - b.precio;
+  } else if (sortOption === 'price-desc') {
+    return b.precio - a.precio;
+  } else {
+    return new Date(b.fecha_publicacion) - new Date(a.fecha_publicacion);
+  }
+});
+
 
   const currentProducts = filteredProducts.slice(indexOfFirstItem, indexOfLastItem);
 
