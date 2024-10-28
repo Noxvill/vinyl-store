@@ -186,6 +186,42 @@ export const GlobalProvider = ({ children }) => {
     fetchProducts();
   }, []);
 
+
+
+// Función para eliminar un producto
+const deleteProduct = async (productId) => {
+  if (!token) {
+    throw new Error('Debes estar logueado para eliminar un producto.');
+  }
+
+  const confirmDelete = window.confirm('¿Estás seguro de que deseas eliminar este producto?');
+  if (!confirmDelete) return false;
+
+  try {
+    const response = await fetch(`${import.meta.env.VITE_API_URL}/api/products/${productId}`, {
+      method: 'DELETE',
+      headers: {
+        'Authorization': `Bearer ${token}`
+      }
+    });
+
+    if (response.ok) {
+      // Eliminar el producto localmente del estado
+      setProducts((prevProducts) => prevProducts.filter(product => product.id !== productId));
+      alert('Producto eliminado exitosamente.');
+      return true; // Retornar true si se elimina exitosamente
+    } else {
+      alert('Error al eliminar el producto.');
+      return false;
+    }
+  } catch (error) {
+    console.error('Error al eliminar el producto:', error);
+    alert('Hubo un problema al eliminar el producto.');
+    return false;
+  }
+};
+
+
   return (
     <GlobalContext.Provider value={{
       user,
@@ -199,6 +235,7 @@ export const GlobalProvider = ({ children }) => {
       products,
       loading,
       error,
+      deleteProduct,
       getLastProducts
     }}>
       {children}

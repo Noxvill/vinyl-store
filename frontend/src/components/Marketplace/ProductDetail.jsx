@@ -1,13 +1,13 @@
 import React, { useContext, useEffect, useState } from 'react';
-import { useParams, useNavigate } from 'react-router-dom'; // Importamos useNavigate para redirigir después de eliminar
-import { GlobalContext } from '../Context/GlobalContext'; // Importa el contexto
+import { useParams, useNavigate } from 'react-router-dom'; 
+import { GlobalContext } from '../Context/GlobalContext'; 
 import './ProductDetail.css';
 
 const ProductDetail = () => {
   const { id } = useParams(); // Captura el ID de la URL
-  const { products, user, token } = useContext(GlobalContext); // Obtén los productos y el usuario logueado del contexto
-  const [product, setProduct] = useState(null); // Estado para almacenar el producto específico
-  const navigate = useNavigate(); // Hook para redireccionar después de eliminar el producto
+  const { products, user, deleteProduct } = useContext(GlobalContext); // Obtenemos la función deleteProduct
+  const [product, setProduct] = useState(null); 
+  const navigate = useNavigate(); 
 
   useEffect(() => {
     // Busca el producto en la lista de productos obtenida del contexto
@@ -26,37 +26,15 @@ const ProductDetail = () => {
     ? `$${Number(product.precio).toLocaleString()}`
     : 'No disponible';
 
-  // Función para eliminar el producto
+  // Manejar la eliminación del producto
   const handleDelete = async () => {
-    if (!token) {
-      alert('Debes estar logueado para eliminar un producto.');
-      return;
-    }
-
-    const confirmDelete = window.confirm('¿Estás seguro de que deseas eliminar este producto?');
-    if (!confirmDelete) return;
-
-    try {
-      const response = await fetch(`http://localhost:3000/api/products/${id}`, {
-        method: 'DELETE',
-        headers: {
-          'Authorization': `Bearer ${token}`
-        }
-      });
-
-      if (response.ok) {
-        alert('Producto eliminado exitosamente.');
-        navigate('/'); // Redirige al usuario a la página principal después de eliminar el producto
-      } else {
-        alert('Error al eliminar el producto.');
-      }
-    } catch (error) {
-      console.error('Error al eliminar el producto:', error);
-      alert('Hubo un problema al eliminar el producto.');
+    const wasDeleted = await deleteProduct(product.id); // Llamar a la función deleteProduct del contexto
+    if (wasDeleted) {
+      navigate('/'); // Redirige a la página principal si se elimina el producto
     }
   };
 
-  // Verifica si el usuario logueado es el dueño del producto
+  // Verificar si el usuario es el dueño del producto
   const isOwner = user && product.vendedor_id === user.id;
 
   return (
@@ -68,7 +46,7 @@ const ProductDetail = () => {
         </div>
         <div className="product-info-section">
           <h2>{product.titulo}</h2>
-          <p className="product-price">Precio: {formattedPrice}</p>
+          <p className="product-price">Precio: {formattedPrice}</p> 
           <p className="product-description">{product.descripcion}</p>
 
           <div className="product-meta">

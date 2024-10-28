@@ -66,6 +66,7 @@
     cursor: pointer;
     font-size: 18px;
     align-self: flex-start;
+    width: 220px;
   }
   
   .buy-now-btn:hover {
@@ -82,6 +83,7 @@
     cursor: pointer;
     font-size: 18px;
     margin-top: 10px;
+    width: 220px;
   }
   
   .delete-btn:hover {
