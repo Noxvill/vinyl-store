@@ -73,7 +73,7 @@ const Header = () => {
       </div>
 
       <nav className="nav">
-        <Link to="/Publicaciones" className="login-btn">Explorar</Link>
+        <Link to="/Publicaciones" className="login-btn">Marketplace</Link>
         {tokenPresent && (
           <Link to="/publicar" className="login-btn">Publicar</Link>
         )}
