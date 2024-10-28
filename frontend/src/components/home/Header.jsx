@@ -1,21 +1,43 @@
 import React, { useContext, useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { GlobalContext } from '../Context/GlobalContext';
 import './Header.css';
 import logo from '../../assets/logostore.png';
 
 const Header = () => {
-  const { user, logout, token } = useContext(GlobalContext); // Accedemos al token desde el contexto
+  const { user, logout, token, products } = useContext(GlobalContext); // Accede a productos desde el contexto
   const [tokenPresent, setTokenPresent] = useState(false);
+  const [searchTerm, setSearchTerm] = useState(''); // Estado para controlar el término de búsqueda
+  const [filteredProducts, setFilteredProducts] = useState([]); // Estado para los resultados filtrados
+  const navigate = useNavigate(); // Para redirigir a la página de detalles del producto
 
   // Verificar si el token en el contexto está presente y actualizar el estado
   useEffect(() => {
-    if (token) {
-      setTokenPresent(true);
+    setTokenPresent(!!token);
+  }, [token]);
+
+  // Función para manejar la búsqueda y filtrar productos
+  const handleSearchChange = (e) => {
+    const searchTerm = e.target.value;
+    setSearchTerm(searchTerm);
+
+    // Filtrar productos que coincidan con el término de búsqueda
+    if (searchTerm.trim() !== '') {
+      const results = products.filter((product) =>
+        product.titulo.toLowerCase().includes(searchTerm.toLowerCase())
+      );
+      setFilteredProducts(results);
     } else {
-      setTokenPresent(false);
+      setFilteredProducts([]); // Vaciar los resultados si no hay búsqueda
     }
-  }, [token]); // Se actualiza cada vez que cambia el token
+  };
+
+  // Función para seleccionar un producto de la lista de resultados y redirigir
+  const handleSelectProduct = (productId) => {
+    setSearchTerm('');
+    setFilteredProducts([]); // Vaciar los resultados tras la selección
+    navigate(`/producto/${productId}`); // Redirigir a la página del producto
+  };
 
   return (
     <header className="header">
@@ -23,20 +45,41 @@ const Header = () => {
         <img 
           src={logo} 
           alt="Logo" 
-          style={{ width: '120px', height: 'auto', maskImage: 'radial-gradient(circle, rgba(0, 0, 0, 1) 60%, rgba(0, 0, 0, 0) 100%)'}} 
+          style={{ width: '120px', height: 'auto', maskImage: 'radial-gradient(circle, rgba(0, 0, 0, 1) 60%, rgba(0, 0, 0, 0) 100%)' }} 
         />
       </Link>
-      <input type="text" placeholder="Buscar disco..." className="search-bar" />
+
+      <div className="search-container">
+        <input
+          type="text"
+          placeholder="Buscar disco..."
+          value={searchTerm}
+          onChange={handleSearchChange}
+          className="search-bar"
+        />
+        {filteredProducts.length > 0 && (
+          <div className="search-results">
+            {filteredProducts.map((product) => (
+              <div
+                key={product.id}
+                className="search-result-item"
+                onClick={() => handleSelectProduct(product.id)}
+              >
+                {product.titulo}
+              </div>
+            ))}
+          </div>
+        )}
+      </div>
+
       <nav className="nav">
         <Link to="/Publicaciones" className="login-btn">Explorar</Link>
-
-        {/* Mostrar el botón "Publicar" solo si hay un token presente */}
         {tokenPresent && (
           <Link to="/publicar" className="login-btn">Publicar</Link>
         )}
       </nav>
+
       <div className="actions">
-        {/* Si hay un token presente, mostrar "Mi Perfil" y el botón de Logout */}
         {tokenPresent ? (
           <>
             <Link to="/profile" className="register-btn">Mi Perfil</Link>
