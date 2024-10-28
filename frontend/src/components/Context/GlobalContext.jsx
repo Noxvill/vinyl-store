@@ -222,6 +222,34 @@ const deleteProduct = async (productId) => {
 };
 
 
+// Función para actualizar un producto
+const updateProduct = async (productId, updatedProductData) => {
+  try {
+    const response = await fetch(`${import.meta.env.VITE_API_URL}/api/products/${productId}`, {
+      method: 'PUT',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${token}`,
+      },
+      body: JSON.stringify(updatedProductData),
+    });
+
+    if (response.ok) {
+      const updatedProduct = await response.json();
+      setProducts((prevProducts) => prevProducts.map(product =>
+        product.id === productId ? updatedProduct : product
+      ));
+      alert('Producto actualizado exitosamente.');
+    } else {
+      throw new Error('Error al actualizar el producto');
+    }
+  } catch (error) {
+    console.error('Error al actualizar el producto:', error);
+    alert('Hubo un problema al actualizar el producto.');
+  }
+};
+
+
   return (
     <GlobalContext.Provider value={{
       user,
@@ -236,6 +264,7 @@ const deleteProduct = async (productId) => {
       loading,
       error,
       deleteProduct,
+      updateProduct,
       getLastProducts
     }}>
       {children}

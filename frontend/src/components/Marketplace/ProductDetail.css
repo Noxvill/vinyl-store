@@ -90,3 +90,19 @@
     background-color: #c9302c;
   }
   
+  .update-btn, .save-btn {
+    padding: 15px 30px;
+    background-color: #5cb85c;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 18px;
+    margin-top: 10px;
+    width: 220px;
+  }
+  
+  .update-btn:hover, .save-btn:hover {
+    background-color: #4cae4c;
+  }
+  
