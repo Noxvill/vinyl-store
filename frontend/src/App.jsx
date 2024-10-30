@@ -64,6 +64,7 @@ import NewPublication from './components/NewPostForm/NewPublication';
 import Footer from './components/home/Footer';
 import UserProfilePage from './components/UserProfilePage/UserProfilePage'
 import ProtectedRoute from './components/ProtectedRoutes/ProtectedRoute'; 
+import Carrito from './components/Cart/Carrito';
 import { GlobalProvider } from './components/Context/GlobalContext';
 import './App.css';
 
@@ -88,6 +89,7 @@ function App() {
             <Route path="/login" element={<LoginPage />} />
             <Route path="/registro" element={<RegistrationPage />} />
             <Route path="/productos" element={<ProductsSection />} />
+            <Route path="/carrito" element={<Carrito />} />
             <Route path="/product/:id" element={<ProductDetail />} />
             <Route path="/*" element={<NotFound />} />
             <Route path="/Publicaciones" element={<ItemsForSale/>} />

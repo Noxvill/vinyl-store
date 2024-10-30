@@ -16,7 +16,7 @@ POST http://localhost:3000/api/auth/login
 Content-Type: application/json
 
 {
-  "mail": "tinty@gmail.com",
+  "mail": "guille@gmail.com",
   "contraseña": "1234"
 }
 
@@ -89,3 +89,19 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MzEsIm1haWwiO
 ### Eliminar usuario autenticado
 DELETE http://localhost:3000/api/users/delete/34
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MzQsIm1haWwiOiJzdWdhckBnbWFpbC5jb20iLCJyb2wiOiJhZG1pbiIsImlhdCI6MTcyODg4MjA2OCwiZXhwIjoxNzI4ODg1NjY4fQ.6-tW2uUHgFYrPDZ6iI4Bfzc-z0aQM3qLFOD2Qyexe-k
+
+
+### Obtener todas las compras
+GET http://localhost:3000/api/buys/all
+
+
+### Crear una compra
+POST http://localhost:3000/api/buys/newbuy
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTMsIm1haWwiOiJndWlsbGVAZ21haWwuY29tIiwicm9sIjoiY29tcHJhZG9yIiwiaWF0IjoxNzMwMzA4MTU0LCJleHAiOjE3MzAzMTE3NTR9.PZ2jYt7roQ07NWsFLATJzuwwzd8wDPF6ecv5FcHP22w
+Content-Type: application/json
+
+{
+  "producto_id": "4",
+  "comprador_id": "13",
+  "monto_pagado": 25000
+}

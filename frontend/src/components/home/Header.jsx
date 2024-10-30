@@ -91,7 +91,10 @@ const Header = () => {
             <Link to="/registro" className="register-btn">Registro</Link>
           </>
         )}
-        <button className="cart-btn">🛒</button>
+        {/* <button className="cart-btn">🛒</button> */}
+        <Link to="/carrito">
+  <button className="cart-btn">🛒</button>
+</Link>
       </div>
     </header>
   );

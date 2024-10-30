@@ -53,6 +53,7 @@
   padding: 8px 16px;
   border: none;
   border-radius: 40px;
+  
   width: 100px;
   
 }
@@ -68,5 +69,27 @@
   display: flex;
   justify-content: center;
   gap: 10px; /* Espacio entre los botones */
+}
+.modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #fff;
+  padding: 15px 30px; /* Ajusta el tamaño del padding para hacerlo más pequeño */
+  border-radius: 8px; /* Bordes redondeados */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); /* Sombras para dar profundidad */
+  z-index: 1000;
+  max-width: 300px; /* Ajusta el tamaño máximo del modal */
+  width: 100%; /* El ancho toma el 100% del contenedor pero respetando el máximo */
+}
+
+.modal-content {
+  text-align: center;
+  font-size: 16px; /* Texto ajustado */
+}
+
+.product-card {
+  position: relative;
 }
 
