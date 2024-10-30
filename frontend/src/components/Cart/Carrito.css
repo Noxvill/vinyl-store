@@ -77,7 +77,7 @@
   font-size: 20px;
 }
 
-.comprar-btn {
+/* .comprar-btn {
   padding: 12px 25px;
   background-color: #000000;
   color: white;
@@ -87,7 +87,7 @@
   font-size: 18px;
   display: flex;
   justify-content: center;
-}
+} */
 
 .comprar-btn:hover {
   background-color: #218838;
